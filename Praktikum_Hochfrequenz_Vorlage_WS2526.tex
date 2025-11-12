@@ -107,8 +107,34 @@
 	\end{figure}
 	
 	\subsubsection{}
+	The \textit{Miller Effect} is introduced at an ideal operational amplifier with a finite gain $v$ with a feedback impedance $Z_\mathrm{k}$. Under open-circuit output conditions the input impedance
+			\begin{equation}
+	Z_\mathrm{e} = \frac{Z_\mathrm{K}}{1 - v}
+		\label{eq: miller}
+	\end{equation}
+	appears dynamically reduced by the factor $1 - v$. If $Z_k = \frac{1}{j \omega C_k}$ the equivalent input capacitance as shown in figure \ref{fig: miller} is enlarged by the same factor -- the \textit{Miller Effect}.
+	
+		\begin{figure}[htb]
+		\centering
+		\includegraphics[width=0.4\linewidth]{miller.png}
+		\caption{\textit{Miller Effect} in an emitter circuit \cite{reinhold2023elektronische}}
+		\label{fig: miller}
+	\end{figure}
+	
+	In the lab experiment the capacitor $C3$ is the \textit{Miller}-capacitor which was varied in this section to achieve similar frequency response properties as with the kaskode circuit. Therefore, its value was altered for each trace $V$(kollektor) of figure \ref{fig: 1-5-6}. With a capacitance of $C_3 \approx 200\,\mathrm{fF}$ a similar cutoff frequency to the kaskode circuit can be modeled.
+	varying the capacitor $C4$ only increases the descend of the frequency response.
+	 
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=1\linewidth]{1-5-6.png}
+		\caption{Two frequency responses of the given circuits \cite{praktikum}. V(out2) marks the kaskode circuit and V(kollektor) displayed frequency responses for varying capacities of the Miller-capacitorfrom 0 F upt to 500 fF. The marked trace being at 200 fF.}
+		\label{fig: 1-5-6}
+	\end{figure}
 	
 	\subsubsection{}
+	
+	Considering the data sheet of a 2N2222 transistor \cite{2N2222} the Output capacitance parameter $C_\mathrm{obo} = 8\,\mathrm{pF}$ which is measured at $V_{CB}$ can be used for $C3$ since this capacitance is between collector and base of the circuit. 
+	$C4$ is at the emitter of the given circuit and connects to ground and can be modeled with the $C_\mathrm{ibo} = 25\,\mathrm{pF}$ parameter of the sheet since this is the base-emitter capacitance (measured with $V_{EB}$) \cite{2N2222}. In our case the base-ground connection resembles a base-emitter connection.
 	
 	\subsubsection{}
 	
