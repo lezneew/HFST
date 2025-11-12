@@ -11,6 +11,8 @@
 \usepackage{setspace}         % Zeilenabstand
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{url}
+\usepackage{todonotes}
 
 % --- Einstellungen ---
 \geometry{a4paper, margin=2.5cm}
@@ -25,23 +27,24 @@
 		{\large  \textbf{Bericht}} \\[0.5em]
 	\end{center}
 	
-\begin{center}
-	\begin{tabular}{|l|p{4cm}|l|p{4cm}|}
-		\hline
-		\textbf{Name:} &  Sebastian Grigorevski & \textbf{Matrikelnr.:} &  35690104 \\
-		\hline
-		\textbf{Versuchsnr.:} & 1 & \textbf{Datum:} & 11.11.2025 \\
-		\hline
-	\end{tabular}
-\end{center}
+	\begin{center}
+		\begin{tabular}{|l|p{4cm}|l|p{4cm}|}
+			\hline
+			\textbf{Name:} &  Sebastian Grigorevski & \textbf{Matrikelnr.:} &  35690104 \\
+			\hline
+			\textbf{Versuchsnr.:} & 1 & \textbf{Datum:} & 11.11.2025 \\
+			\hline
+		\end{tabular}
+	\end{center}
 	
 	\vspace{1cm}
 	\setcounter{section}{1}  % setzt den Section Zähler auf 1
 	\setcounter{subsection}{5}  % setzt den Subsection Zähler auf 5
 	\setcounter{subsubsection}{0}  % setzt den Subsubsection Zähler auf 0
-
-	\subsubsection{RC-Tiefpass}
-	In this section a low-pass filter like displayed in fig. \ref{fig: lowpass} was simulated with \textit{LTspice} \cite[]{ltspice}. 
+	
+	\subsubsection{}
+	In this section a low-pass filter, like displayed in figure \ref{fig: lowpass}, was simulated with \textit{LTspice} \cite{ltspice} for different frequencies via AC-analysis. The result is shown in figure \ref{fig: lowpass-bode}.
+	
 	
 	\begin{figure}[htb]
 		\centering
@@ -49,20 +52,85 @@
 		\caption{RC-low-pass modeled with \textit{LTspice}}
 		\label{fig: lowpass}
 	\end{figure}
-
-
+	
+	The cutoff frequency $f_\mathrm{c} \approx 795.6\,\mathrm{Hz}$ can be determined at $-3\,\mathrm{db}$ of the trace. 
+	This result compares within $0.17\,\mathrm{Hz}$ with the theoretical value acquired though the relation
+	\begin{equation}
+		f_\mathrm{c} = \frac{1}{2 \pi R C} = 795.77\,\mathrm{Hz}
+		\label{eq: fc}
+	\end{equation}
+	between the cutoff frequency $f_\mathrm{c}$, the resistance $R = 1\,\mathrm{k\Omega}$ and capacitance $C = 200\,\mathrm{nF}$ \cite{reinhold2023elektronische}.
+	Further the slope of the voltage trace is measured at $-5.97\,\mathrm{db/octave}\,\, (-19.95\,\mathrm{db/decade})$ which fits within $0.03\,\mathrm{db/decade}$ of the literature value for first order dampers of $-20$ $\mathrm{db/decade}$ \cite{reinhold2023elektronische}.
+	
+	
 	\begin{figure}[htb]
 		\centering
-		\includegraphics[width=0.7\linewidth]{lowpass-bode.png}
-		\caption{RC-low-pass modeled with \textit{LTspice}}
+		\includegraphics[width=1\linewidth]{lowpass-bode.png}
+		\caption{Bode diagram of RC-low-pass shown in fig. \ref{fig: lowpass} }
 		\label{fig: lowpass-bode}
 	\end{figure}
+	
 	\subsubsection{}
 	
-	At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. et harum quidem rerum facilis est et expedita distinctio. nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. 
+	The ratio between input and output voltage at $f_\mathrm{c}$ is characterized as
+		\begin{equation}
+		\frac{V_2}{V_1} = \frac{1}{\sqrt{2}}% \approx \frac{V_\mathrm{out}}{V_\mathrm{in}} = \frac{1}{\sqrt{2}}
+		\label{eq: ratio}
+	\end{equation}
+	which equals to $-3\,\mathrm{db}$ \cite{reinhold2023elektronische}.
+	
+	\subsubsection{}
+	
+	The voltage source $V3$ is needed to control the current source $F1$ with an amplification factor of 200 or 190. It is set at $0.707\,\mathrm{V} \approx 1/\sqrt{2}\,\mathrm{V}$ modeling the state at cutoff frequency of a RC-low-pass circuit.
+	\todo{was noch????}
+	
+	\subsubsection{}
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=1\linewidth]{1-5-4.png}
+		\caption{Two frequency responses from the given circuits \cite{praktikum}. V(out2) marks the kaskode circuit and V(kollektor) the emitter circuit.}
+		\label{fig: 1-5-4}
+	\end{figure}
+	
+	
+	\subsubsection{}
+	
+	Comparing the frequency responses of the transistor circuit and voltage control circuit there are many similarities, such as the lower cutoff frequency, their saturation amplification as well as their trajectory in lower frequencies. 
+	On the other hand the transistor circuit bears a higher second cutoff frequency at $f_\mathrm{c, transistor} \approx 850\,\mathrm{kHz}$ compared to $f_\mathrm{c} \approx 795.6\,\mathrm{kHz}$ of the voltage controlled circuit.
+	\todo{was noch???}
+	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=1\linewidth]{1-5-5.png}
+		\caption{Two frequency responses from the given circuits \cite{praktikum}. V(kollektor) marks the circuit with transistors and V(kollektor1) the voltage controlled circuit.}
+		\label{fig: 1-5-5}
+	\end{figure}
+	
+	\subsubsection{}
+	
+	\subsubsection{}
+	
+	\subsubsection{}
+	
+	\subsubsection{}
+	
+	\subsubsection{}
+	
+	\subsubsection{}
+	
+	\subsubsection{}
+	
+	\subsubsection{}
+	
+	\subsubsection{}
+	
+
 	
 	
 	\vfill
 	
+	% --- Bibliography ---
+	\bibliographystyle{plain}
+	\bibliography{referenzen}
 	
 \end{document}
