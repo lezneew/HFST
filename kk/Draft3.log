@@ -1,0 +1,14 @@
+LTspice 24.1.10 for Windows
+Circuit: D:\Projects\HSFT\HFST\kk\Draft3.net
+Start Time: Thu Nov 13 01:22:47 2025
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = modified trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.052 seconds.
+
+Files loaded:
+D:\Projects\HSFT\HFST\kk\Draft3.net
+

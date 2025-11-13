@@ -107,12 +107,12 @@
 	\end{figure}
 	
 	\subsubsection{}
-	The \textit{Miller Effect} is introduced at an ideal operational amplifier with a finite gain $v$ with a feedback impedance $Z_\mathrm{k}$. Under open-circuit output conditions the input impedance
+	The \textit{Miller Effect} is introduced at an ideal operational amplifier with a finite gain $v$ with a feedback impedance $Z_\mathrm{k}$. Under open-circuit output conditions the equivalent input impedance
 			\begin{equation}
 	Z_\mathrm{e} = \frac{Z_\mathrm{K}}{1 - v}
 		\label{eq: miller}
 	\end{equation}
-	appears dynamically reduced by the factor $1 - v$. If $Z_k = \frac{1}{j \omega C_k}$ the equivalent input capacitance as shown in figure \ref{fig: miller} is enlarged by the same factor -- the \textit{Miller Effect}.
+	appears to be dynamically reduced by the factor $1 - v$. If $Z_k = \frac{1}{j \omega C_k}$ the equivalent input capacitance as shown in figure \ref{fig: miller} is enlarged by the same factor -- the \textit{Miller Effect}.
 	
 		\begin{figure}[htb]
 		\centering
@@ -138,7 +138,10 @@
 	
 	\subsubsection{}
 	
+	The voltage of the source $V3$ which acts as a current sensor has a value of $\neq 0$. This is because the difference in potential of $0.707\,$V is needed to support the given current through the serial resistance of $806\,\Omega$. It is a 'metric' for the current passing through the resistance. \todo{bin immer noch verwirrt}
+	
 	\subsubsection{}
+	Furthermore, the internal resistance of the source $V3$ is needed to calculate the potential discussed before. It models the real internal resistance of a measurement tool, which provides numerical stability avoiding short circuits\todo{quelle}.
 	
 	\subsubsection{}
 	
