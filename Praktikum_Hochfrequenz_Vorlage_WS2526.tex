@@ -113,17 +113,14 @@
 		\label{eq: miller}
 	\end{equation}
 	appears to be dynamically reduced by the factor $1 - v$. If $Z_k = \frac{1}{j \omega C_k}$ the equivalent input capacitance as shown in figure \ref{fig: miller} is enlarged by the same factor -- the \textit{Miller Effect}.
-	
 		\begin{figure}[htb]
 		\centering
 		\includegraphics[width=0.4\linewidth]{miller.png}
 		\caption{\textit{Miller Effect} in an emitter circuit \cite{reinhold2023elektronische}}
 		\label{fig: miller}
 	\end{figure}
-	
 	In the lab experiment the capacitor $C3$ is the \textit{Miller}-capacitor which was varied in this section to achieve similar frequency response properties as with the kaskode circuit. Therefore, its value was altered for each trace $V$(kollektor) of figure \ref{fig: 1-5-6}. With a capacitance of $C_3 \approx 200\,\mathrm{fF}$ a similar cutoff frequency to the kaskode circuit can be modeled.
 	varying the capacitor $C4$ only increases the descend of the frequency response.
-	 
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1\linewidth]{1-5-6.png}
@@ -144,8 +141,28 @@
 	Furthermore, the internal resistance of the source $V3$ is needed to calculate the potential discussed before. It models the real internal resistance of a measurement tool, which provides numerical stability avoiding short circuits\todo{quelle}.
 	
 	\subsubsection{}
+	In this section the $S_{21}$ parameter along with the input and output impedance were measured for different frequencies of the emitter circuit of the second lab experiment.
+	$S_{21}$ is the scattering parameter or the forward transmission gain and can be approximated with the ratio between output and input voltage. It describes how much of an input arrives at the output \cite{}.
+	In figure \ref{fig: 1-5-10} this parameter is shown to have an plateau between $\sim 2\,\mathrm{kHz} - 4\,$MHz (-$3\,$db points) marking the bandwidth of the system. With frequencies outside of the bandwidth the forward transmission declines.
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=1\linewidth]{1-5-10db.png}
+		\caption{$S_{21}$ parameter as a function of frequency.}
+		\label{fig: 1-5-10}
+	\end{figure}
+	\todo{einheit?}
+	The input and output impedances are displayed in figure \ref{fig: 1-5-101} for varying frequencies. $Z_\mathrm{in}$ has a steadily declining trajectory with plateaus at $\sim$ 12$\,$kHz and above $\sim$ 10$\,$MHz. For frequencies this high the capacitive reactance ($X_C = \frac{1}{2\pi f C}$) dominates causing a very low input impedance. The \textit{Miller} effect causes high impedance at first.
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=1\linewidth]{1-5-101.png}
+		\caption{Output and input impedances of an emitter circuit for varying frequencies.}
+		\label{fig: 1-5-101}
+	\end{figure}
+	The output impedance $Z_\mathrm{out}$ is nearly constant at $\sim 500\,\Omega$ below $\sim 1\,\mathrm{M}\Omega$ after which it also declines. This can be explained with parasitic effects.
 	
 	\subsubsection{}
+	
+	The 8 pF capacitance and the 10 M$\Omega$ resistance replace a base-collector connection of a real transistor. The resistance allows a leakage current. These components counteract \todo{fragen, keine ahnung}
 	
 	\subsubsection{}
 	

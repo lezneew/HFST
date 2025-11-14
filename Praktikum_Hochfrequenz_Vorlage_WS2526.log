@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.26)  13 NOV 2025 01:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.26)  14 NOV 2025 20:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -670,38 +670,75 @@ LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 105.
 <miller.png, id=26, 549.55313pt x 299.61937pt>
 File: miller.png Graphic file (type png)
 <use miller.png>
-Package pdftex.def Info: miller.png  used on input line 119.
+Package pdftex.def Info: miller.png  used on input line 118.
 (pdftex.def)             Requested size: 182.09486pt x 99.27701pt.
 <1-5-6.png, id=27, 683.55376pt x 292.09125pt>
 File: 1-5-6.png Graphic file (type png)
 <use 1-5-6.png>
-Package pdftex.def Info: 1-5-6.png  used on input line 129.
+Package pdftex.def Info: 1-5-6.png  used on input line 126.
 (pdftex.def)             Requested size: 455.24411pt x 194.53683pt.
 
-LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 130.
+LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 127.
 
 
-LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 130.
+LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 127.
 
 
 
 [3 <./1-5-5.png> <./miller.png>]
-Overfull \hbox (3.96814pt too wide) in paragraph at lines 144--144
+Overfull \hbox (3.96814pt too wide) in paragraph at lines 141--141
 [][][]\T1/lmr/m/n/12 quelle[]  
  []
 
 
-Overfull \hbox (3.96814pt too wide) in paragraph at lines 144--144
+Overfull \hbox (3.96814pt too wide) in paragraph at lines 141--141
 [][][]\T1/lmr/m/n/12 quelle[]  
  []
 
 
 LaTeX Warning: Marginpar on page 4 moved.
 
-(Praktikum_Hochfrequenz_Vorlage_WS2526.bbl
+
+LaTeX Warning: Citation `' on page 4 undefined on input line 145.
+
+<1-5-10db.png, id=35, 654.19406pt x 300.3722pt>
+File: 1-5-10db.png Graphic file (type png)
+<use 1-5-10db.png>
+Package pdftex.def Info: 1-5-10db.png  used on input line 149.
+(pdftex.def)             Requested size: 455.24411pt x 209.02618pt.
+
+Overfull \hbox (14.41245pt too wide) in paragraph at lines 153--153
+[][][]\T1/lmr/m/n/12 einheit?[]  
+ []
+
+
+Overfull \hbox (14.41245pt too wide) in paragraph at lines 153--153
+[][][]\T1/lmr/m/n/12 einheit?[]  
+ []
+
+<1-5-101.png, id=36, 652.68843pt x 300.3722pt>
+File: 1-5-101.png Graphic file (type png)
+<use 1-5-101.png>
+Package pdftex.def Info: 1-5-101.png  used on input line 157.
+(pdftex.def)             Requested size: 455.24411pt x 209.51659pt.
+
+
+[4 <./1-5-6.png>]
+Overfull \hbox (9.1902pt too wide) in paragraph at lines 165--165
+[][][]\T1/lmr/m/n/12 fragen, 
+ []
+
+
+Overfull \hbox (9.1902pt too wide) in paragraph at lines 165--165
+[][][]\T1/lmr/m/n/12 fragen, 
+ []
+
+
+
+[5 <./1-5-10db.png> <./1-5-101.png>] (Praktikum_Hochfrequenz_Vorlage_WS2526.bbl
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
 .
- (E:\Tex\tex/latex/lm\t1lmtt.fd
+(E:\Tex\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
@@ -715,11 +752,9 @@ Underfull \hbox (badness 3049) in paragraph at lines 4--8
 $\T1/lmr/m/n/12 .  Ac-cessed: 2025-
  []
 
+)
 
-
-[4 <./1-5-6.png>])
-
-[5] (Praktikum_Hochfrequenz_Vorlage_WS2526.aux)
+[6] (Praktikum_Hochfrequenz_Vorlage_WS2526.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
@@ -730,22 +765,22 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16258 strings out of 473681
- 322848 string characters out of 5737168
- 705837 words of memory out of 5000000
- 39050 multiletter control sequences out of 15000+600000
+ 16292 strings out of 473681
+ 323554 string characters out of 5737168
+ 710176 words of memory out of 5000000
+ 39084 multiletter control sequences out of 15000+600000
  598756 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,9n,101p,460b,942s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,9n,101p,463b,942s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <E:/Tex/fonts/type1/public/lm/lmbx12.pfb><E:/Tex/fonts/type1/public/lm/lmmi12
 .pfb><E:/Tex/fonts/type1/public/lm/lmmi6.pfb><E:/Tex/fonts/type1/public/lm/lmmi
 8.pfb><E:/Tex/fonts/type1/public/lm/lmr12.pfb><E:/Tex/fonts/type1/public/lm/lmr
 8.pfb><E:/Tex/fonts/type1/public/lm/lmri12.pfb><E:/Tex/fonts/type1/public/lm/lm
 sy10.pfb><E:/Tex/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Praktikum_Hochfrequenz_Vorlage_WS2526.pdf (5 pages, 251606 by
+Output written on Praktikum_Hochfrequenz_Vorlage_WS2526.pdf (6 pages, 281363 by
 tes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
+ 93 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
