@@ -166,7 +166,45 @@
 	
 	\subsubsection{}
 	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=1\linewidth]{1-5-121.png}
+		\caption{Circuit of LC-Basis\_f.asc}
+		\label{fig: 1-5-121}
+	\end{figure}
+	Analyzing the base voltage for varying inductances at $L2$ of the LC-circuit shown in fig. \ref{fig: 1-5-121} leads to the frequency dependent plot in fig. \ref{fig: 1-5-122}. For rising inductances the amplification curve moves to lower frequencies while the distance between peaks remains $\sim 3\,$MHz. Further the maximum amplification declines for rising inductances.	
+	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=1\linewidth]{1-5-122.png}
+		\caption{AC-Analysis of LC-Basis\_f.asc for rising inductances}
+		\label{fig: 1-5-122}
+	\end{figure}
+	When we look at the maximum amplification of the circuit with $L2=1\mu$H it is observable at $\sim 6.2\,$MHz. The peak has a bandwidth of $\sim 1\,$MHz between 6.7 and 5.7$\,$MHz as can be seen in fig. \ref{fig: 1-5-123}
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=1\linewidth]{1-5-123.png}
+		\caption{AC-Analysis of LC-Basis\_f\_sweep.asc for one L2}
+		\label{fig: 1-5-123}
+	\end{figure}
+	looking at the power at R4 as shown in fig. \ref{fig: 1-5-124} at 5 MHz the difference in power between the circuit with and without a LC-circuit is $\sim 157\,$mW.
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=1\linewidth]{1-5-124.png}
+		\caption{AC-Analysis of LC-Basis\_f\_sweep.asc showing power with tha additional base circuit (dark) and without the base circuit (pink)}
+		\label{fig: 1-5-124}
+	\end{figure}
+	
+	
 	\subsubsection{}
+	When comparing the currents of the sine generator V1 and the current at the base of the transistor without the LC-circuit it is visible that they nearly overlap as seen in fig. \ref{fig: 1-5-13}. With the LC-circuit a different behaviour is observable. While the generator current remains mostly constant the current at the transistor base shows distinct damping and gain peaks due to the oscillatory behavior of the LC-circuit with resonance and deletion frequencies.
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=1\linewidth]{1-5-13.png}
+		\caption{Currents of the sine generator I(V1) and the base Ib(Q1). LC-circuit is off for overlapping traces and on otherwise}
+		\label{fig: 1-5-13}
+	\end{figure}
+	Due to the increase of current at resonance frequency the base-emitter capacitance of the transistor receives its necessary charge to toggle in less time increasing the possible switch rate.
 	
 	\subsubsection{}
 	
