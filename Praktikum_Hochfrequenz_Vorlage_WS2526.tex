@@ -13,6 +13,7 @@
 \usepackage{caption}
 \usepackage{url}
 \usepackage{todonotes}
+\usepackage{float}
 
 % --- Einstellungen ---
 \geometry{a4paper, margin=2.5cm}
@@ -60,7 +61,7 @@
 		\label{eq: fc}
 	\end{equation}
 	between the cutoff frequency $f_\mathrm{c}$, the resistance $R = 1\,\mathrm{k\Omega}$ and capacitance $C = 200\,\mathrm{nF}$ \cite{reinhold2023elektronische}.
-	Further the slope of the voltage trace is measured at $-5.97\,\mathrm{db/octave}\,\, (-19.95\,\mathrm{db/decade})$ which fits within $0.03\,\mathrm{db/decade}$ of the literature value for first order dampers of $-20$ $\mathrm{db/decade}$ \cite{reinhold2023elektronische}.
+	Further the slope of the voltage trace is measured at $-5.97\,\mathrm{db/octave}\,\, (-19.95\,\mathrm{db/decade})$ which fits within $0.05\,\mathrm{db/decade}$ of the literature value for first order dampers of $-20$ $\mathrm{db/decade}$ \cite{reinhold2023elektronische}.
 	
 	
 	\begin{figure}[htb]
@@ -81,10 +82,10 @@
 	
 	\subsubsection{}
 	
-	The voltage source $V3$ is needed to control the current source $F1$ with an amplification factor of 200 or 190. It is set at $0.707\,\mathrm{V} \approx 1/\sqrt{2}\,\mathrm{V}$ modeling the state at cutoff frequency of a RC-low-pass circuit.
-	\todo{was noch????}
+	The voltage source $V3$ is needed to control the current source $F1$ with an amplification factor of 200 or 190. It is set at $0.707\,\mathrm{V} \approx 1/\sqrt{2}\,\mathrm{V}$ modeling the state at cutoff frequency of a RC-low-pass circuit. It measures the current flowing through it and provides the value to the current source which then amplifies this value.
 	
 	\subsubsection{}
+	Figure \ref{fig: 1-5-4} shows the frequency responses of the given circuits.
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1\linewidth]{1-5-4.png}
@@ -96,8 +97,8 @@
 	\subsubsection{}
 	
 	Comparing the frequency responses of the transistor circuit and voltage control circuit there are many similarities, such as the lower cutoff frequency, their saturation amplification as well as their trajectory in lower frequencies. 
-	On the other hand the transistor circuit bears a higher second cutoff frequency at $f_\mathrm{c, transistor} \approx 850\,\mathrm{kHz}$ compared to $f_\mathrm{c} \approx 795.6\,\mathrm{kHz}$ of the voltage controlled circuit.
-	\todo{was noch???}
+	On the other hand the transistor circuit bears a higher second cutoff frequency at $f_\mathrm{c, transistor} \approx 850\,\mathrm{kHz}$ compared to $f_\mathrm{c} \approx 480\,\mathrm{kHz}$ of the voltage controlled circuit.
+	For frequencies above 100 MHz a bigger decline is visible with the transistor circuit.
 	
 	\begin{figure}[htb]
 		\centering
@@ -112,7 +113,7 @@
 	Z_\mathrm{e} = \frac{Z_\mathrm{K}}{1 - v}
 		\label{eq: miller}
 	\end{equation}
-	appears to be dynamically reduced by the factor $1 - v$. If $Z_k = \frac{1}{j \omega C_k}$ the equivalent input capacitance as shown in figure \ref{fig: miller} is enlarged by the same factor -- the \textit{Miller Effect}.
+	appears to be dynamically reduced by the factor $1 - v$. If $Z_k = \frac{1}{j \omega C_k}$ the equivalent input capacitance as shown in figure \ref{fig: miller} is enlarged by the same factor which is known as the \textit{Miller Effect}.
 		\begin{figure}[htb]
 		\centering
 		\includegraphics[width=0.4\linewidth]{miller.png}
@@ -120,11 +121,11 @@
 		\label{fig: miller}
 	\end{figure}
 	In the lab experiment the capacitor $C3$ is the \textit{Miller}-capacitor which was varied in this section to achieve similar frequency response properties as with the kaskode circuit. Therefore, its value was altered for each trace $V$(kollektor) of figure \ref{fig: 1-5-6}. With a capacitance of $C_3 \approx 200\,\mathrm{fF}$ a similar cutoff frequency to the kaskode circuit can be modeled.
-	varying the capacitor $C4$ only increases the descend of the frequency response.
+	Varying the capacitor $C4$ only increases the descend of the frequency response.
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1\linewidth]{1-5-6.png}
-		\caption{Two frequency responses of the given circuits \cite{praktikum}. V(out2) marks the kaskode circuit and V(kollektor) displayed frequency responses for varying capacities of the Miller-capacitorfrom 0 F upt to 500 fF. The marked trace being at 200 fF.}
+		\caption{Two frequency responses of the given circuits \cite{praktikum}. V(out2) marks the kaskode circuit and V(kollektor) displayed frequency responses for varying capacities of the Miller-capacitor from 0 F up to 500 fF. The marked trace being at 200 fF.}
 		\label{fig: 1-5-6}
 	\end{figure}
 	
@@ -135,10 +136,10 @@
 	
 	\subsubsection{}
 	
-	The voltage of the source $V3$ which acts as a current sensor has a value of $\neq 0$. This is because the difference in potential of $0.707\,$V is needed to support the given current through the serial resistance of $806\,\Omega$. It is a 'metric' for the current passing through the resistance. \todo{bin immer noch verwirrt}
+	The voltage of the source $V3$ has a value of $\neq 0$. This is because the difference in potential of $0.707\,$V is the voltage needed for a silicium based transistor to amplify \cite{2N2222}. It acts as the base-emitter potential.
 	
 	\subsubsection{}
-	Furthermore, the internal resistance of the source $V3$ is needed to calculate the potential discussed before. It models the real internal resistance of a measurement tool, which provides numerical stability avoiding short circuits\todo{quelle}.
+	Furthermore, the internal resistance of the source $V3$ is needed to calculate the potential discussed before. It models the real internal resistance of a transistor $r_{BE}$. It is needed when using small-signal circuit diagrams \cite{reinhold2023elektronische}.
 	
 	\subsubsection{}
 	In this section the $S_{21}$ parameter along with the input and output impedance were measured for different frequencies of the emitter circuit of the second lab experiment.
@@ -162,7 +163,7 @@
 	
 	\subsubsection{}
 	
-	The 8 pF capacitance and the 10 M$\Omega$ resistance replace a base-collector connection of a real transistor. The resistance allows a leakage current. These components counteract \todo{fragen, keine ahnung}
+	The 8 pF capacitance and the 10 M$\Omega$ resistance represent the effect of an oscilloscope probe.
 	
 	\subsubsection{}
 	
@@ -180,25 +181,25 @@
 		\caption{AC-Analysis of LC-Basis\_f.asc for rising inductances}
 		\label{fig: 1-5-122}
 	\end{figure}
-	When we look at the maximum amplification of the circuit with $L2=1\mu$H it is observable at $\sim 6.2\,$MHz. The peak has a bandwidth of $\sim 1\,$MHz between 6.7 and 5.7$\,$MHz as can be seen in fig. \ref{fig: 1-5-123}
+	When we look at the maximum amplification of the circuit with $L2=1\mu$H it is observable at $\sim 6.2\,$MHz. The peak has a bandwidth of $\sim 1\,$MHz between 6.7 and 5.7$\,$MHz as can be seen in fig. \ref{fig: 1-5-123}.
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1\linewidth]{1-5-123.png}
 		\caption{AC-Analysis of LC-Basis\_f\_sweep.asc for one L2}
 		\label{fig: 1-5-123}
 	\end{figure}
-	looking at the power at R4 as shown in fig. \ref{fig: 1-5-124} at 5 MHz the difference in power between the circuit with and without a LC-circuit is $\sim 157\,$mW.
+	Looking at the power at R4 as shown in fig. \ref{fig: 1-5-124} at 5 MHz the difference in power between the circuit with ($\sim 48.3\,$mW) and without a LC-circuit($\sim 125.9\,$mW) is $\sim 77.6\,$mW. Hence the circuit with gain-peaking runs more efficiently.
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=1\linewidth]{1-5-124.png}
-		\caption{AC-Analysis of LC-Basis\_f\_sweep.asc showing power with tha additional base circuit (dark) and without the base circuit (pink)}
+		\caption{AC-Analysis of LC-Basis\_f\_sweep.asc showing power with the additional base circuit (dark) and without the base circuit (pink)}
 		\label{fig: 1-5-124}
 	\end{figure}
 	
 	
 	\subsubsection{}
-	When comparing the currents of the sine generator V1 and the current at the base of the transistor without the LC-circuit it is visible that they nearly overlap as seen in fig. \ref{fig: 1-5-13}. With the LC-circuit a different behaviour is observable. While the generator current remains mostly constant the current at the transistor base shows distinct damping and gain peaks due to the oscillatory behavior of the LC-circuit with resonance and deletion frequencies.
-	\begin{figure}[htb]
+	When comparing the currents of the sine generator V1 and the current at the base of the transistor without the LC-circuit it is visible that they nearly overlap as seen in fig. \ref{fig: 1-5-13}. With the LC-circuit a different behaviour is observable. While the generator current remains mostly level the current at the transistor base shows distinct damping and gain peaks due to the oscillatory behavior of the LC-circuit with resonance and deletion frequencies.
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\linewidth]{1-5-13.png}
 		\caption{Currents of the sine generator I(V1) and the base Ib(Q1). LC-circuit is off for overlapping traces and on otherwise}
@@ -208,6 +209,13 @@
 	
 	\subsubsection{}
 	
+	It is possible to achieve higher voltages at the collector than given at the source due to the coil at the collector. It can store energy and discharge it to sustain its current potential. For an input amplitude of 0.8 V a maximum collector potential of $\sim 5.3$ V can be achieved at resonance frequency as shown in fig \ref{fig: 1-5-14}.
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{1-5-14.png}
+		\caption{Collector voltage of the transistor for different frequencies}
+		\label{fig: 1-5-14}
+	\end{figure}
 
 	
 	

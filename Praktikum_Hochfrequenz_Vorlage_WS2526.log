@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.26)  22 NOV 2025 22:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.26)  23 NOV 2025 20:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -482,34 +482,40 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Cskip=\skip55
 )
 \c@@todonotes@numberoftodonotes=\count306
+) (E:\Tex\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count307
+\float@exts=\toks36
+\float@box=\box65
+\@float@everytoks=\toks37
+\@floatcapt=\box66
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 22
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 23
 .
- (E:\Tex\tex/latex/lm\t1lmr.fd
+
+(E:\Tex\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-(E:\Tex\tex/latex/l3backend\l3backend-pdftex.def
+) (E:\Tex\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count307
-\l__pdf_internal_box=\box65
-)
-(Praktikum_Hochfrequenz_Vorlage_WS2526.aux)
+\l__color_backend_stack_int=\count308
+\l__pdf_internal_box=\box67
+) (Praktikum_Hochfrequenz_Vorlage_WS2526.aux)
 \openout1 = `Praktikum_Hochfrequenz_Vorlage_WS2526.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -547,17 +553,17 @@ LaTeX Font Info:    ... okay on input line 22.
 
 (E:\Tex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count308
+\scratchcounter=\count309
 \scratchdimen=\dimen284
-\scratchbox=\box66
-\nofMPsegments=\count309
-\nofMParguments=\count310
-\everyMPshowfont=\toks36
-\MPscratchCnt=\count311
+\scratchbox=\box68
+\nofMPsegments=\count310
+\nofMParguments=\count311
+\everyMPshowfont=\toks38
+\MPscratchCnt=\count312
 \MPscratchDim=\dimen285
-\MPnumerator=\count312
-\makeMPintoPDFobject=\count313
-\everyMPtoPDFconversion=\toks37
+\MPnumerator=\count313
+\makeMPintoPDFobject=\count314
+\everyMPtoPDFconversion=\toks39
 ) (E:\Tex\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -567,61 +573,52 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 22.
+loading the todonotes package. on input line 23.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-1.
+2.
 (E:\Tex\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-1.
+2.
  (E:\Tex\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-31.
+32.
 
 (E:\Tex\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-31.
+32.
  (E:\Tex\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 31.
+(Font)              <12> on input line 32.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 31.
+(Font)              <8> on input line 32.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 31.
+(Font)              <6> on input line 32.
 <lowpass.png, id=4, 634.62094pt x 294.34969pt>
 File: lowpass.png Graphic file (type png)
 <use lowpass.png>
-Package pdftex.def Info: lowpass.png  used on input line 51.
+Package pdftex.def Info: lowpass.png  used on input line 52.
 (pdftex.def)             Requested size: 227.62206pt x 105.57504pt.
 <lowpass-bode.png, id=6, 901.11656pt x 341.77687pt>
 File: lowpass-bode.png Graphic file (type png)
 <use lowpass-bode.png>
-Package pdftex.def Info: lowpass-bode.png  used on input line 68.
+Package pdftex.def Info: lowpass-bode.png  used on input line 69.
 (pdftex.def)             Requested size: 455.24411pt x 172.66635pt.
-
-Overfull \hbox (20.61359pt too wide) in paragraph at lines 85--85
-\T1/lmr/m/n/12 noch????[]  
- []
-
-
-Overfull \hbox (20.61359pt too wide) in paragraph at lines 85--85
-\T1/lmr/m/n/12 noch????[]  
- []
-
 
 
 [1
@@ -630,144 +627,121 @@ Overfull \hbox (20.61359pt too wide) in paragraph at lines 85--85
 enc/dvips/lm/lm-ec.enc}{E:/Tex/fonts/enc/dvips/lm/lm-mathit.enc}{E:/Tex/fonts/e
 nc/dvips/lm/lm-rm.enc}{E:/Tex/fonts/enc/dvips/lm/lm-mathsy.enc} <./lowpass.png>
 ]
-<1-5-4.png, id=19, 667.74469pt x 292.84406pt>
+<1-5-4.png, id=19, 795.72281pt x 298.86656pt>
 File: 1-5-4.png Graphic file (type png)
 <use 1-5-4.png>
-Package pdftex.def Info: 1-5-4.png  used on input line 90.
-(pdftex.def)             Requested size: 455.24411pt x 199.65413pt.
+Package pdftex.def Info: 1-5-4.png  used on input line 91.
+(pdftex.def)             Requested size: 455.24411pt x 170.98502pt.
 
 
-LaTeX Warning: Citation `praktikum' on page 2 undefined on input line 91.
+LaTeX Warning: Citation `praktikum' on page 2 undefined on input line 92.
 
 
-LaTeX Warning: Citation `praktikum' on page 2 undefined on input line 91.
-
-
-Overfull \hbox (15.0651pt too wide) in paragraph at lines 100--100
-\T1/lmr/m/n/12 noch???[]  
- []
-
-
-Overfull \hbox (15.0651pt too wide) in paragraph at lines 100--100
-\T1/lmr/m/n/12 noch???[]  
- []
+LaTeX Warning: Citation `praktikum' on page 2 undefined on input line 92.
 
 
 
 [2 <./lowpass-bode.png> <./1-5-4.png>]
-<1-5-5.png, id=25, 672.26157pt x 310.15875pt>
+<1-5-5.png, id=25, 653.44125pt x 300.3722pt>
 File: 1-5-5.png Graphic file (type png)
 <use 1-5-5.png>
-Package pdftex.def Info: 1-5-5.png  used on input line 104.
-(pdftex.def)             Requested size: 455.24411pt x 210.03435pt.
+Package pdftex.def Info: 1-5-5.png  used on input line 105.
+(pdftex.def)             Requested size: 455.24411pt x 209.26451pt.
 
 
-LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 105.
+LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 106.
 
 
-LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 105.
+LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 106.
 
 <miller.png, id=26, 549.55313pt x 299.61937pt>
 File: miller.png Graphic file (type png)
 <use miller.png>
-Package pdftex.def Info: miller.png  used on input line 118.
+Package pdftex.def Info: miller.png  used on input line 119.
 (pdftex.def)             Requested size: 182.09486pt x 99.27701pt.
 <1-5-6.png, id=27, 683.55376pt x 292.09125pt>
 File: 1-5-6.png Graphic file (type png)
 <use 1-5-6.png>
-Package pdftex.def Info: 1-5-6.png  used on input line 126.
+Package pdftex.def Info: 1-5-6.png  used on input line 127.
 (pdftex.def)             Requested size: 455.24411pt x 194.53683pt.
 
-LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 127.
+LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 128.
 
 
-LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 127.
+LaTeX Warning: Citation `praktikum' on page 3 undefined on input line 128.
 
 
 
 [3 <./1-5-5.png> <./miller.png>]
-Overfull \hbox (3.96814pt too wide) in paragraph at lines 141--141
-[][][]\T1/lmr/m/n/12 quelle[]  
- []
 
-
-Overfull \hbox (3.96814pt too wide) in paragraph at lines 141--141
-[][][]\T1/lmr/m/n/12 quelle[]  
- []
-
-
-LaTeX Warning: Marginpar on page 4 moved.
-
-
-LaTeX Warning: Citation `' on page 4 undefined on input line 145.
+LaTeX Warning: Citation `' on page 4 undefined on input line 146.
 
 <1-5-10db.png, id=35, 654.19406pt x 300.3722pt>
 File: 1-5-10db.png Graphic file (type png)
 <use 1-5-10db.png>
-Package pdftex.def Info: 1-5-10db.png  used on input line 149.
+Package pdftex.def Info: 1-5-10db.png  used on input line 150.
 (pdftex.def)             Requested size: 455.24411pt x 209.02618pt.
 
-Overfull \hbox (14.41245pt too wide) in paragraph at lines 153--153
+Overfull \hbox (14.41245pt too wide) in paragraph at lines 154--154
 [][][]\T1/lmr/m/n/12 einheit?[]  
  []
 
 
-Overfull \hbox (14.41245pt too wide) in paragraph at lines 153--153
+Overfull \hbox (14.41245pt too wide) in paragraph at lines 154--154
 [][][]\T1/lmr/m/n/12 einheit?[]  
  []
 
 <1-5-101.png, id=36, 652.68843pt x 300.3722pt>
 File: 1-5-101.png Graphic file (type png)
 <use 1-5-101.png>
-Package pdftex.def Info: 1-5-101.png  used on input line 157.
+Package pdftex.def Info: 1-5-101.png  used on input line 158.
 (pdftex.def)             Requested size: 455.24411pt x 209.51659pt.
 
 
 [4 <./1-5-6.png>]
-Overfull \hbox (9.1902pt too wide) in paragraph at lines 165--165
-[][][]\T1/lmr/m/n/12 fragen, 
- []
-
-
-Overfull \hbox (9.1902pt too wide) in paragraph at lines 165--165
-[][][]\T1/lmr/m/n/12 fragen, 
- []
-
-
-
-[5 <./1-5-10db.png> <./1-5-101.png>]
-<1-5-121.png, id=46, 749.80125pt x 296.60812pt>
+<1-5-121.png, id=41, 749.80125pt x 296.60812pt>
 File: 1-5-121.png Graphic file (type png)
 <use 1-5-121.png>
-Package pdftex.def Info: 1-5-121.png  used on input line 171.
+Package pdftex.def Info: 1-5-121.png  used on input line 172.
 (pdftex.def)             Requested size: 455.24411pt x 180.08887pt.
-<1-5-122.png, id=47, 1401.73688pt x 299.61937pt>
+<1-5-122.png, id=42, 1401.73688pt x 299.61937pt>
 File: 1-5-122.png Graphic file (type png)
 <use 1-5-122.png>
-Package pdftex.def Info: 1-5-122.png  used on input line 179.
+Package pdftex.def Info: 1-5-122.png  used on input line 180.
 (pdftex.def)             Requested size: 455.24411pt x 97.30656pt.
-<1-5-123.png, id=48, 1400.23125pt x 301.125pt>
+<1-5-123.png, id=43, 1400.23125pt x 301.125pt>
 File: 1-5-123.png Graphic file (type png)
 <use 1-5-123.png>
-Package pdftex.def Info: 1-5-123.png  used on input line 186.
+Package pdftex.def Info: 1-5-123.png  used on input line 187.
 (pdftex.def)             Requested size: 455.24411pt x 97.90121pt.
-<1-5-124.png, id=49, 676.77844pt x 299.61937pt>
+<1-5-124.png, id=44, 715.17188pt x 301.8778pt>
 File: 1-5-124.png Graphic file (type png)
 <use 1-5-124.png>
-Package pdftex.def Info: 1-5-124.png  used on input line 193.
-(pdftex.def)             Requested size: 455.24411pt x 201.54857pt.
-<1-5-13.png, id=50, 1399.47844pt x 299.61937pt>
+Package pdftex.def Info: 1-5-124.png  used on input line 194.
+(pdftex.def)             Requested size: 455.24411pt x 192.16011pt.
+
+
+[5 <./1-5-10db.png>]
+<1-5-13.png, id=49, 675.27281pt x 297.36093pt>
 File: 1-5-13.png Graphic file (type png)
 <use 1-5-13.png>
-Package pdftex.def Info: 1-5-13.png  used on input line 203.
-(pdftex.def)             Requested size: 455.24411pt x 97.462pt.
+Package pdftex.def Info: 1-5-13.png  used on input line 204.
+(pdftex.def)             Requested size: 455.24411pt x 200.47401pt.
 
 
-[6 <./1-5-121.png> <./1-5-122.png>] (Praktikum_Hochfrequenz_Vorlage_WS2526.bbl
+[6 <./1-5-101.png> <./1-5-121.png>]
+<1-5-14.png, id=55, 676.77844pt x 297.36093pt>
+File: 1-5-14.png Graphic file (type png)
+<use 1-5-14.png>
+Package pdftex.def Info: 1-5-14.png  used on input line 215.
+(pdftex.def)             Requested size: 455.24411pt x 200.02936pt.
+
+
+[7 <./1-5-122.png> <./1-5-123.png> <./1-5-13.png>]
+(Praktikum_Hochfrequenz_Vorlage_WS2526.bbl
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
 .
-
-(E:\Tex\tex/latex/lm\t1lmtt.fd
+ (E:\Tex\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
@@ -783,9 +757,9 @@ $\T1/lmr/m/n/12 .  Ac-cessed: 2025-
 
 
 
-[7 <./1-5-123.png> <./1-5-124.png> <./1-5-13.png>])
+[8 <./1-5-124.png> <./1-5-14.png>])
 
-[8] (Praktikum_Hochfrequenz_Vorlage_WS2526.aux)
+[9] (Praktikum_Hochfrequenz_Vorlage_WS2526.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
@@ -796,22 +770,22 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16332 strings out of 473681
- 324241 string characters out of 5737168
- 710294 words of memory out of 5000000
- 39124 multiletter control sequences out of 15000+600000
+ 16358 strings out of 473681
+ 324282 string characters out of 5737168
+ 705039 words of memory out of 5000000
+ 39146 multiletter control sequences out of 15000+600000
  598756 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,9n,101p,534b,942s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,9n,101p,531b,940s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <E:/Tex/fonts/type1/public/lm/lmbx12.pfb><E:/Tex/fonts/type1/public/lm/lmmi12
 .pfb><E:/Tex/fonts/type1/public/lm/lmmi6.pfb><E:/Tex/fonts/type1/public/lm/lmmi
 8.pfb><E:/Tex/fonts/type1/public/lm/lmr12.pfb><E:/Tex/fonts/type1/public/lm/lmr
 8.pfb><E:/Tex/fonts/type1/public/lm/lmri12.pfb><E:/Tex/fonts/type1/public/lm/lm
 sy10.pfb><E:/Tex/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Praktikum_Hochfrequenz_Vorlage_WS2526.pdf (8 pages, 390797 by
+Output written on Praktikum_Hochfrequenz_Vorlage_WS2526.pdf (9 pages, 400875 by
 tes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
+ 116 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
