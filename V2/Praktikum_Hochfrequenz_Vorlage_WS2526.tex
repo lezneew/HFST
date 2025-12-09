@@ -14,6 +14,9 @@
 \usepackage{url}
 \usepackage{todonotes}
 \usepackage{float}
+\usepackage{pgfplots}
+\usepackage{xfp}      % provides \fpeval for calculations
+\usepackage{multirow}
 
 % --- Einstellungen ---
 \geometry{a4paper, margin=2.5cm}
@@ -25,7 +28,7 @@
 	% Titel
 	\begin{center}
 		{\LARGE \textbf{Praktikum Hochfrequenz-Schaltungstechnik WS25/26}} \\[1em]
-		{\large  \textbf{Bericht}} \\[0.5em]
+		{\large  \textbf{Report}} \\[0.5em]
 	\end{center}
 	
 	\begin{center}
@@ -33,7 +36,7 @@
 			\hline
 			\textbf{Name:} &  Sebastian Grigorevski & \textbf{Matrikelnr.:} &  35690104 \\
 			\hline
-			\textbf{Versuchsnr.:} & 1 & \textbf{Datum:} & 11.11.2025 \\
+			\textbf{Versuchsnr.:} & 2 & \textbf{Datum:} & 01.12.2025 \\
 			\hline
 		\end{tabular}
 	\end{center}
@@ -44,179 +47,237 @@
 	\setcounter{subsubsection}{0}  % setzt den Subsubsection Zähler auf 0
 	
 	\subsubsection{}
-	In this section a low-pass filter, like displayed in figure \ref{fig: lowpass}, was simulated with \textit{LTspice} \cite{ltspice} for different frequencies via AC-analysis. The result is shown in figure \ref{fig: lowpass-bode}.
 	
+	The resistance $RQuelle$ and $RQuelle1$ of the transistor circuits  depict the internal resistance of the AC generator V2. It limits the current flowing towards the base of the transistor.
+	Together with the capacitor it determines the high-pass characteristic of the coupling to the system.
 	
-	\begin{figure}[htb]
+	\subsubsection{}
+	
+	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.5\linewidth]{lowpass.png}
-		\caption{RC-low-pass modeled with \textit{LTspice}}
-		\label{fig: lowpass}
-	\end{figure}
-	
-	The cutoff frequency $f_\mathrm{c} \approx 795.6\,\mathrm{Hz}$ can be determined at $-3\,\mathrm{db}$ of the trace. 
-	This result compares within $0.17\,\mathrm{Hz}$ with the theoretical value acquired though the relation
-	\begin{equation}
-		f_\mathrm{c} = \frac{1}{2 \pi R C} = 795.77\,\mathrm{Hz}
-		\label{eq: fc}
-	\end{equation}
-	between the cutoff frequency $f_\mathrm{c}$, the resistance $R = 1\,\mathrm{k\Omega}$ and capacitance $C = 200\,\mathrm{nF}$ \cite{reinhold2023elektronische}.
-	Further the slope of the voltage trace is measured at $-5.97\,\mathrm{db/octave}\,\, (-19.95\,\mathrm{db/decade})$ which fits within $0.05\,\mathrm{db/decade}$ of the literature value for first order dampers of $-20$ $\mathrm{db/decade}$ \cite{reinhold2023elektronische}.
-	
-	
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=1\linewidth]{lowpass-bode.png}
-		\caption{Bode diagram of RC-low-pass shown in fig. \ref{fig: lowpass} }
-		\label{fig: lowpass-bode}
+		\begin{tikzpicture}
+			\begin{axis}[
+				width=16cm,
+				height=8cm,
+				xlabel={Frequency [Hz]},
+				ylabel={V\textsubscript{rms} [mV]},
+				xmode=log,
+				log basis x={10},
+				log basis y={10},
+				ymode=log,
+				grid=both,
+				major grid style={gray!60},
+				minor grid style={gray!30},
+				mark size=2pt,
+				legend pos=south west,
+				xmin=1e4, xmax=1e7,
+				ymin=90,  ymax=1e3,
+				]
+				
+				% ---- First Trace ----
+				\addplot[
+				black,
+				mark=*,
+				thick,
+				dashed
+				] coordinates {
+					(1e4, 660)
+					(2e4, 700)
+					(3e4, 740)
+					(4e4, 740)
+					(5e4, 720)
+					(6e4, 720)
+					(7e4, 720)
+					(8e4, 740)
+					(9e4, 740)
+					(1e5, 740)
+					(2e5, 740)
+					(3e5, 640)
+					(4e5, 620)
+					(5e5, 600)
+					(6e5, 580)
+					(7e5, 520)
+					(8e5, 480)
+					(9e5, 440)
+					(1e6, 400)
+					(2e6, 240)
+					(3e6, 160)
+					(4e6, 120)
+				};
+				\addlegendentry{Emitter}
+				
+				% ---- Second Trace ----
+				\addplot[
+				black,
+				mark=x,
+				mark size=3pt,
+				thick,
+				] coordinates {
+					(1e4, 304)
+					(2e4, 320)
+					(3e4, 336)
+					(4e4, 336)
+					(5e4, 328)
+					(6e4, 328)
+					(7e4, 328)
+					(8e4, 336)
+					(9e4, 336)
+					(1e5, 336)
+					(2e5, 352)
+					(3e5, 328)
+					(4e5, 336)
+					(5e5, 336)
+					(9e5, 328)
+					(1e6, 328)
+					(2e6, 304)
+					(3e6, 272)
+					(4e6, 232)
+					(5e6, 200)
+					(6e6, 176)
+					(7e6, 152)
+					(8e6, 136)
+					(9e6, 120)
+					(1e7, 104)
+				};
+				\addlegendentry{Kaskode}
+				
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Frequency response of the root mean square voltage V\textsubscript{rms} of Emitter and Kaskode circuits \cite{praktikum}}
+		\label{fig: freqgang}
 	\end{figure}
 	
 	\subsubsection{}
 	
-	The ratio between input and output voltage at $f_\mathrm{c}$ is characterized as
-		\begin{equation}
-		\frac{V_2}{V_1} = \frac{1}{\sqrt{2}}% \approx \frac{V_\mathrm{out}}{V_\mathrm{in}} = \frac{1}{\sqrt{2}}
-		\label{eq: ratio}
-	\end{equation}
-	which equals to $-3\,\mathrm{db}$ \cite{reinhold2023elektronische}.
+	Considering figure \ref{fig: amplif} the amplification at 10 mV lays at $\sim62$ for the emitter circuit and at $\sim30.4$ for the kaskode circuit. 
+	Taking 89 \% of these amplification values results in $A_{\mathrm{emitter},0.89} = \fpeval{62*0.89}$ and $A_{\mathrm{kaskode},0.89} = \fpeval{30.4*0.89}$ for the different circuits. 
+	Looking at the mentioned traces the calculated threshold for the emitter can be found at roughly below 100 mV where the data point is at a factor of 54. Moreover, for the kaskode $A_{\mathrm{kaskode},0.89}$ is reached at $\sim40$ mV (amplification of 27).
+	This point of 0.89 of the amplification is can be translated to the decibel scale with $20 \cdot \log_{10}(0.89) \approx -1$ db \cite{reinhold2023elektronische}.
+	This point where the amplification decreases by one decibel is known as the \textit{compression}-point \cite{Strauss_GrundkursHF_3A}.
 	
-	\subsubsection{}
-	
-	The voltage source $V3$ is needed to control the current source $F1$ with an amplification factor of 200 or 190. It is set at $0.707\,\mathrm{V} \approx 1/\sqrt{2}\,\mathrm{V}$ modeling the state at cutoff frequency of a RC-low-pass circuit. It measures the current flowing through it and provides the value to the current source which then amplifies this value.
-	
-	\subsubsection{}
-	Figure \ref{fig: 1-5-4} shows the frequency responses of the given circuits.
-	\begin{figure}[htb]
+	\begin{figure}[h]
 		\centering
-		\includegraphics[width=1\linewidth]{1-5-4.png}
-		\caption{Two frequency responses from the given circuits \cite{praktikum}. V(out2) marks the kaskode circuit and V(kollektor) the emitter circuit.}
-		\label{fig: 1-5-4}
-	\end{figure}
-	
-	
-	\subsubsection{}
-	
-	Comparing the frequency responses of the transistor circuit and voltage control circuit there are many similarities, such as the lower cutoff frequency, their saturation amplification as well as their trajectory in lower frequencies. 
-	On the other hand the transistor circuit bears a higher second cutoff frequency at $f_\mathrm{c, transistor} \approx 850\,\mathrm{kHz}$ compared to $f_\mathrm{c} \approx 480\,\mathrm{kHz}$ of the voltage controlled circuit.
-	For frequencies above 100 MHz a bigger decline is visible with the transistor circuit.
-	
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=1\linewidth]{1-5-5.png}
-		\caption{Two frequency responses from the given circuits \cite{praktikum}. V(kollektor) marks the circuit with transistors and V(kollektor1) the voltage controlled circuit.}
-		\label{fig: 1-5-5}
-	\end{figure}
-	
-	\subsubsection{}
-	The \textit{Miller Effect} is introduced at an ideal operational amplifier with a finite gain $v$ with a feedback impedance $Z_\mathrm{k}$. Under open-circuit output conditions the equivalent input impedance
-			\begin{equation}
-	Z_\mathrm{e} = \frac{Z_\mathrm{K}}{1 - v}
-		\label{eq: miller}
-	\end{equation}
-	appears to be dynamically reduced by the factor $1 - v$. If $Z_k = \frac{1}{j \omega C_k}$ the equivalent input capacitance as shown in figure \ref{fig: miller} is enlarged by the same factor which is known as the \textit{Miller Effect}.
-		\begin{figure}[htb]
-		\centering
-		\includegraphics[width=0.4\linewidth]{miller.png}
-		\caption{\textit{Miller Effect} in an emitter circuit \cite{reinhold2023elektronische}}
-		\label{fig: miller}
-	\end{figure}
-	In the lab experiment the capacitor $C3$ is the \textit{Miller}-capacitor which was varied in this section to achieve similar frequency response properties as with the kaskode circuit. Therefore, its value was altered for each trace $V$(kollektor) of figure \ref{fig: 1-5-6}. With a capacitance of $C_3 \approx 200\,\mathrm{fF}$ a similar cutoff frequency to the kaskode circuit can be modeled.
-	Varying the capacitor $C4$ only increases the descend of the frequency response.
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=1\linewidth]{1-5-6.png}
-		\caption{Two frequency responses of the given circuits \cite{praktikum}. V(out2) marks the kaskode circuit and V(kollektor) displayed frequency responses for varying capacities of the Miller-capacitor from 0 F up to 500 fF. The marked trace being at 200 fF.}
-		\label{fig: 1-5-6}
-	\end{figure}
-	
-	\subsubsection{}
-	
-	Considering the data sheet of a 2N2222 transistor \cite{2N2222} the Output capacitance parameter $C_\mathrm{obo} = 8\,\mathrm{pF}$ which is measured at $V_{CB}$ can be used for $C3$ since this capacitance is between collector and base of the circuit. 
-	$C4$ is at the emitter of the given circuit and connects to ground and can be modeled with the $C_\mathrm{ibo} = 25\,\mathrm{pF}$ parameter of the sheet since this is the base-emitter capacitance (measured with $V_{EB}$) \cite{2N2222}. In our case the base-ground connection resembles a base-emitter connection.
-	
-	\subsubsection{}
-	
-	The voltage of the source $V3$ has a value of $\neq 0$. This is because the difference in potential of $0.707\,$V is the voltage needed for a silicium based transistor to amplify \cite{2N2222}. It acts as the base-emitter potential.
-	
-	\subsubsection{}
-	Furthermore, the internal resistance of the source $V3$ is needed to calculate the potential discussed before. It models the real internal resistance of a transistor $r_{BE}$. It is needed when using small-signal circuit diagrams \cite{reinhold2023elektronische}.
-	
-	\subsubsection{}
-	In this section the $S_{21}$ parameter along with the input and output impedance were measured for different frequencies of the emitter circuit of the second lab experiment.
-	$S_{21}$ is the scattering parameter or the forward transmission gain and can be approximated with the ratio between output and input voltage. It describes how much of an input arrives at the output \cite{}.
-	In figure \ref{fig: 1-5-10} this parameter is shown to have an plateau between $\sim 2\,\mathrm{kHz} - 4\,$MHz (-$3\,$db points) marking the bandwidth of the system. With frequencies outside of the bandwidth the forward transmission declines.
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=1\linewidth]{1-5-10db.png}
-		\caption{$S_{21}$ parameter as a function of frequency.}
-		\label{fig: 1-5-10}
-	\end{figure}
-	\todo{einheit?}
-	The input and output impedances are displayed in figure \ref{fig: 1-5-101} for varying frequencies. $Z_\mathrm{in}$ has a steadily declining trajectory with plateaus at $\sim$ 12$\,$kHz and above $\sim$ 10$\,$MHz. For frequencies this high the capacitive reactance ($X_C = \frac{1}{2\pi f C}$) dominates causing a very low input impedance. The \textit{Miller} effect causes high impedance at first.
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=1\linewidth]{1-5-101.png}
-		\caption{Output and input impedances of an emitter circuit for varying frequencies.}
-		\label{fig: 1-5-101}
-	\end{figure}
-	The output impedance $Z_\mathrm{out}$ is nearly constant at $\sim 500\,\Omega$ below $\sim 1\,\mathrm{M}\Omega$ after which it also declines. This can be explained with parasitic effects.
-	
-	\subsubsection{}
-	
-	The 8 pF capacitance and the 10 M$\Omega$ resistance represent the effect of an oscilloscope probe.
-	
-	\subsubsection{}
-	
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=1\linewidth]{1-5-121.png}
-		\caption{Circuit of LC-Basis\_f.asc}
-		\label{fig: 1-5-121}
-	\end{figure}
-	Analyzing the base voltage for varying inductances at $L2$ of the LC-circuit shown in fig. \ref{fig: 1-5-121} leads to the frequency dependent plot in fig. \ref{fig: 1-5-122}. For rising inductances the amplification curve moves to lower frequencies while the distance between peaks remains $\sim 3\,$MHz. Further the maximum amplification declines for rising inductances.	
-	
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=1\linewidth]{1-5-122.png}
-		\caption{AC-Analysis of LC-Basis\_f.asc for rising inductances}
-		\label{fig: 1-5-122}
-	\end{figure}
-	When we look at the maximum amplification of the circuit with $L2=1\mu$H it is observable at $\sim 6.2\,$MHz. The peak has a bandwidth of $\sim 1\,$MHz between 6.7 and 5.7$\,$MHz as can be seen in fig. \ref{fig: 1-5-123}.
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=1\linewidth]{1-5-123.png}
-		\caption{AC-Analysis of LC-Basis\_f\_sweep.asc for one L2}
-		\label{fig: 1-5-123}
-	\end{figure}
-	Looking at the power at R4 as shown in fig. \ref{fig: 1-5-124} at 5 MHz the difference in power between the circuit with ($\sim 48.3\,$mW) and without a LC-circuit($\sim 125.9\,$mW) is $\sim 77.6\,$mW. Hence the circuit with gain-peaking runs more efficiently.
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=1\linewidth]{1-5-124.png}
-		\caption{AC-Analysis of LC-Basis\_f\_sweep.asc showing power with the additional base circuit (dark) and without the base circuit (pink)}
-		\label{fig: 1-5-124}
-	\end{figure}
-	
-	
-	\subsubsection{}
-	When comparing the currents of the sine generator V1 and the current at the base of the transistor without the LC-circuit it is visible that they nearly overlap as seen in fig. \ref{fig: 1-5-13}. With the LC-circuit a different behaviour is observable. While the generator current remains mostly level the current at the transistor base shows distinct damping and gain peaks due to the oscillatory behavior of the LC-circuit with resonance and deletion frequencies.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=1\linewidth]{1-5-13.png}
-		\caption{Currents of the sine generator I(V1) and the base Ib(Q1). LC-circuit is off for overlapping traces and on otherwise}
-		\label{fig: 1-5-13}
-	\end{figure}
-	Due to the increase of current at resonance frequency the base-emitter capacitance of the transistor receives its necessary charge to toggle in less time increasing the possible switch rate.
-	
-	\subsubsection{}
-	
-	It is possible to achieve higher voltages at the collector than given at the source due to the coil at the collector. It can store energy and discharge it to sustain its current potential. For an input amplitude of 0.8 V a maximum collector potential of $\sim 5.3$ V can be achieved at resonance frequency as shown in fig \ref{fig: 1-5-14}.
-		\begin{figure}[H]
-		\centering
-		\includegraphics[width=1\linewidth]{1-5-14.png}
-		\caption{Collector voltage of the transistor for different frequencies}
-		\label{fig: 1-5-14}
+		\begin{tikzpicture}
+			\begin{axis}[
+				width=15cm,
+				height=8cm,
+				xlabel={Input Voltage $V_{\mathrm{rms}}$ [mV]},
+				ylabel={Amplification},
+				grid=both,
+				xmode=log,
+				log basis x={10},
+%				ymode=log,
+%				log basis y={10},
+%    			ytick={22.5, 25,27.5, 30, 32.5, 35, 37.5, 40},
+				major grid style={gray!60},
+				minor grid style={gray!30},
+				mark size=2pt,
+				legend pos=south west,
+				xmin=5, xmax=200,
+				ymin=10,  ymax=80,
+				]
+				
+				% ==== 350 kHz Trace ====
+				\addplot[
+				black,
+				mark=*,
+				thick,
+				dashed
+				] coordinates { (5,400/5) (10,620/10) (15,940/15) (20,1240/20) (25,1560/25) (30,1880/30) (35,2160/35) (40,2480/40) (45,3040/45) (50,3280/50) (55,3600/55) 	(60,3820/60) (100,5400/100) (200,6200/200) };
+%				] coordinates {
+%					(5,  {20*log10(400/5)})
+%					(10, {20*log10(620/10)})
+%					(15, {20*log10(940/15)})
+%					(20, {20*log10(1240/20)})
+%					(25, {20*log10(1560/25)})
+%					(30, {20*log10(1880/30)})
+%					(35, {20*log10(2160/35)})
+%					(40, {20*log10(2480/40)})
+%					(45, {20*log10(3040/45)})
+%					(50, {20*log10(3280/50)})
+%					(55, {20*log10(3600/55)})
+%					(60, {20*log10(3820/60)})
+%					(100,{20*log10(5400/100)})
+%					(200,{20*log10(6200/200)})
+%				};
+				\addlegendentry{Emitter @ 350\,kHz}
+				
+				% ==== 2.05 MHz Trace ====
+				\addplot[
+				black,
+				mark=x,
+				thick,
+				mark size=3pt
+				] coordinates { (5,152/5) (10,304/10) (15,448/15) (20,580/20) (25,720/25) (30,860/30) (35,960/35) (40,1080/40) (45,1200/45) (50,1320/50) (55,1400/55) (60,1520/60) (100,2240/100) (200,3040/200) };
+%				] coordinates {
+%					(5,   {20*log10(152/5)})
+%					(10,  {20*log10(304/10)})
+%					(15,  {20*log10(448/15)})
+%					(20,  {20*log10(580/20)})
+%					(25,  {20*log10(720/25)})
+%					(30,  {20*log10(880/30)})
+%					(35,  {20*log10(1080/35)})
+%					(40,  {20*log10(1200/40)})
+%					(45,  {20*log10(1320/45)})
+%					(50,  {20*log10(1400/50)})
+%					(55,  {20*log10(1400/55)})
+%					(60,  {20*log10(1520/60)})
+%					(100, {20*log10(2240/100)})
+%					(200, {20*log10(3040/200)})
+%				};
+				\addlegendentry{Kaskode @ 2.05\,MHz}
+				
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Amplification of the root mean square voltage V\textsubscript{rms} of Emitter and Kaskode circuits \cite{praktikum} at their saturation frequencies.}
+		\label{fig: amplif}
 	\end{figure}
 
+	\subsubsection{}
+	
+	The collector of the transistor of the emitter circuit bears a high impedance since it is directly connected to the system leading to a high AC voltages.
+	On the other hand the collector Q1 is fed by the emitter of another transistor and sees a low impedance. This is because the base is connected to ground with the capacitor, thus the AC voltages are expected to be low.
+	
+	\subsubsection{}
+	
+	The transistor Q1 itself delivered an amplification of two measuring at $V_\mathrm{rms}=20\,$mV with an effective input voltage of 10 mV at 50 kHz.
+	
+	\subsubsection{}
+	
+	\subsubsection{}
+	
+	The transit frequency of the given transistor is at $f_t = 250\,$MHz while a cutoff frequency was measured at $\sim700\,$kHz \cite{2N2222}. Their ratio can be calculated to $R_{t,c} = \frac{f_t}{f_{cutoff}} \approx 357.14$
+	
+	\subsubsection{}
+	
+	The transistor T2 of the circuit 103 of \cite{Elektor_303Circuits_1988} is being used in an base configuration since its base is directly connected to ground. This can be assumed since the capacitor is short circuited under high frequency. The same configuration can be seen with the transistor Q2. Meanwhile the transistor Q1 is set to be in emitter configuration for similar reason (and the name gives it away). Further the table below shows different characteristics of common configurations.
+	
+	\begin{table}[ht]
+		\centering
+		\caption{Comparison of basic transistor configurations taken from \cite{Gossner_GrundlagenDerElektronik_2011_8A}}
+		\begin{tabular}{llccc}
+			\toprule
+			& Common-emitter & Common-collector & Common-base \\
+			\midrule
+			\multirow{1}{*}{input resistance $R_{\mathrm{in}}$ (AC)} & medium & large & small \\
+	
+			\multirow{1}{*}{output resistance $R_{\mathrm{out}}$ (AC)} & medium & small & medium \\
+	
+			\multirow{1}{*}{open-circuit voltage gain $V_{u0}$} & large & $\leq 1$ & large \\
+	
+			\multirow{1}{*}{current gain $V_{i}$} & medium / large & medium / large & $\leq 1$ \\
+	
+			\multirow{1}{*}{power gain $V_{p}$} & very large & medium / large & medium \\
+	
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\subsubsection{}
+	
+	The oscilloscope probe was set to 1x and 10x for both the emitter circuit and kaskode circuit. For the emitter circuit no change in measurment of the cutoff frequency was observable. Measuring the kaskode circuit the cutoff frequency dropped by nearly half at 2.4 MHz with the 1x option compared with 4.1 MHz at 10x.
+	This can be explained trough the absence of the Miller effect. In the kaskode circuit the bandwidth is determined by the output gate. There the increase of capacitance changing from 10x to 1x is significant and lowers the cutoff frequency. This cannot be observed in the emitter circuit since the Miller effect already determines a much lower cutoff frequency where the probe does not show aany difference.
+	
 	
 	
 	\vfill

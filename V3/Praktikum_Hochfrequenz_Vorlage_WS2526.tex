@@ -1,0 +1,68 @@
+\documentclass[a4paper,12pt]{article}
+
+% --- Pakete ---
+\usepackage[utf8]{inputenc}   % Umlaute direkt eingeben
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}          % Schöne Schrift
+\usepackage{geometry}         % Seitenränder anpassen
+\usepackage{booktabs}         % Für schönere Tabellen
+\usepackage{array}
+\usepackage{setspace}         % Zeilenabstand
+\usepackage{graphicx}
+\usepackage{caption}
+
+% --- Einstellungen ---
+\geometry{a4paper, margin=2.5cm}
+\setstretch{1.25}
+
+% --- Dokument ---
+\begin{document}
+	
+	% Titel
+	\begin{center}
+		{\LARGE \textbf{Praktikum Hochfrequenz-Schaltungstechnik WS25/26}} \\[1em]
+		{\large  \textbf{Bericht}} \\[0.5em]
+	\end{center}
+	
+\begin{center}
+	\begin{tabular}{|l|p{4cm}|l|p{4cm}|}
+		\hline
+		\textbf{Name:} &  Sebastian Grigorevski & \textbf{Matrikelnr.:} &  35690104 \\
+		\hline
+		\textbf{Versuchsnr.:} & 1 & \textbf{Datum:} & 11.11.2025 \\
+		\hline
+	\end{tabular}
+\end{center}
+	
+	\vspace{1cm}
+	\setcounter{section}{1}  % setzt den Section Zähler auf 1
+	\setcounter{subsection}{5}  % setzt den Subsection Zähler auf 5
+	\setcounter{subsubsection}{0}  % setzt den Subsubsection Zähler auf 0
+
+	\subsubsection{RC-Tiefpass}
+	In this section a low-pass filter like displayed in fig. \ref{fig: lowpass} was simulated with \textit{LTspice} \cite[]{ltspice}. 
+	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=0.5\linewidth]{lowpass.png}
+		\caption{RC-low-pass modeled with \textit{LTspice}}
+		\label{fig: lowpass}
+	\end{figure}
+
+
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=0.7\linewidth]{lowpass-bode.png}
+		\caption{RC-low-pass modeled with \textit{LTspice}}
+		\label{fig: lowpass-bode}
+	\end{figure}
+	\subsubsection{}
+	
+	At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. et harum quidem rerum facilis est et expedita distinctio. nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. 
+	
+	
+	\vfill
+	
+	
+\end{document}
