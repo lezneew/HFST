@@ -1,11 +1,21 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.use("pgf")
+
+matplotlib.rcParams.update({
+    "pgf.texsystem": "pdflatex",
+    'font.family': 'serif',
+    'text.usetex': True,
+    'pgf.rcfonts': False,
+})
 
 # =========================
 # Load IF filter data
 # =========================
-data = pd.read_csv("3.4.3-if-bandpass.csv")  # replace with your file
+data = pd.read_csv("3.4.3-if-zoomed-bandpass.csv")  # replace with your file
 
 f = data["Frequency(Hz)"].values
 TL_dB = data["Transmission Loss(dB)"].values  # transmission loss
@@ -46,11 +56,12 @@ BW_6dB = f_right - f_left
 # =========================
 # Plot Transmission Loss
 # =========================
-plt.figure(figsize=(8,5))
+fig = plt.figure(figsize=(6.3, 3.5))
+plt.xlim(10, 12)
 plt.plot(f/1e6, TL_dB, linewidth=2, label="Transmission Loss")
 plt.axvline(f_center/1e6, color='r', linestyle='--', label="Center Frequency")
-plt.axvline(f_left/1e6, color='g', linestyle='--', label="6 dB Points")
-plt.axvline(f_right/1e6, color='g', linestyle='--')
+# plt.axvline(f_left/1e6, color='g', linestyle='--', label="6 dB Points")
+# plt.axvline(f_right/1e6, color='g', linestyle='--')
 plt.xlabel("Frequency (MHz)")
 plt.ylabel("Transmission Loss (dB)")
 plt.title("IF Filter Transmission Loss with 6 dB Bandwidth")
@@ -67,3 +78,4 @@ print(f"Maximum transmission: {TL_max:.2f} dB")
 print(f"6 dB bandwidth: {BW_6dB/1e6:.3f} MHz")
 print(f"Lower 6 dB frequency: {f_left/1e6:.3f} MHz")
 print(f"Upper 6 dB frequency: {f_right/1e6:.3f} MHz")
+fig.savefig("3514.pgf")

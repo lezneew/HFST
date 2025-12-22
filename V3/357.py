@@ -2,6 +2,15 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
+import matplotlib
+matplotlib.use("pgf")
+
+matplotlib.rcParams.update({
+    "pgf.texsystem": "pdflatex",
+    'font.family': 'serif',
+    'text.usetex': True,
+    'pgf.rcfonts': False,
+})
 
 
 # =========================
@@ -25,18 +34,18 @@ SWR_res = SWR[idx_res]
 # =========================
 # Plot
 # =========================
-plt.figure(figsize=(8, 5))
+fig, ax = plt.subplots(figsize=(6.3, 3.5))
 
-plt.plot(f, RL, linewidth=2, label="Return Loss (dB)")
-plt.scatter(f_res, RL_min, zorder=5, label="Resonance")
+ax.plot(f, RL, linewidth=2, label="Return Loss (dB)")
+ax.scatter(f_res, RL_min, zorder=5, label="Resonance")
 
-plt.xlabel("Frequency (Hz)")
-plt.ylabel("Return Loss (dB)")
-plt.title("Measured Return Loss of Matching Network")
+ax.set_xlabel("Frequency (Hz)")
+ax.set_xlabel("Return Loss (dB)")
+ax.set_title("Measured Return Loss of Matching Network")
 
-plt.grid(True, linestyle=":", linewidth=0.8)
-plt.legend()
-plt.tight_layout()
+ax.grid(True, linestyle=":", linewidth=0.8)
+ax.legend()
+fig.tight_layout()
 
 plt.show()
 with open("357.pkl", "wb") as f_pkl:
@@ -47,4 +56,5 @@ with open("357.pkl", "wb") as f_pkl:
 # =========================
 print(f"Resonance frequency: {f_res/1e6:.3f} MHz")
 print(f"Minimum return loss: {RL_min:.2f} dB")
-print(f"SWR at resonance: {SWR_res:.2f}")
+print(f"SWR at resonance: {SWR_res}")
+fig.savefig("357.pgf")

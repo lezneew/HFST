@@ -2,7 +2,15 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
+import matplotlib
+matplotlib.use("pgf")
 
+matplotlib.rcParams.update({
+    "pgf.texsystem": "pdflatex",
+    'font.family': 'serif',
+    'text.usetex': True,
+    'pgf.rcfonts': False,
+})
 # =========================
 # Constants
 # =========================
@@ -43,7 +51,7 @@ L2 = v * tau2 / 2
 # =========================
 # Plot
 # =========================
-fig, ax = plt.subplots(figsize=(8, 5))
+fig, ax = plt.subplots(figsize=(6.3, 3.5))
 
 ax.plot(f1, p1, linewidth=2, label="Cable 1 – Measured phase")
 # ax.plot(f1, np.polyval(coef1, f1), "--", linewidth=2, label="Cable 1 – Fit")
@@ -75,3 +83,4 @@ with open("356.pkl", "wb") as f_pkl:
 print("Cable 1 length: {:.3f} m".format(L1))
 print("Cable 2 length: {:.3f} m".format(L2))
 print("Total cable length: {:.3f} m".format(L1 + L2))
+fig.savefig("356.pgf")

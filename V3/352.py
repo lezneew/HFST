@@ -2,7 +2,15 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
-
+import matplotlib
+# matplotlib.use("pgf")
+#
+# matplotlib.rcParams.update({
+#     "pgf.texsystem": "pdflatex",
+#     'font.family': 'serif',
+#     'text.usetex': True,
+#     'pgf.rcfonts': False,
+# })
 
 # =========================
 # Load measurement data
@@ -41,12 +49,14 @@ f_phase_neg = f[idx_phase_neg[0]] if len(idx_phase_neg) > 0 else None
 # =========================
 # Plot
 # =========================
-fig, ax1 = plt.subplots(figsize=(8, 5))
+fig, ax1 = plt.subplots(figsize=(6.3, 3.5))
 
 ax1.plot(f, Z, linewidth=2, label="|Z|", c='black')
 ax1.set_xlabel("Frequency (Hz)")
-ax1.set_ylabel("Impedance |Z| (Ω)")
+ax1.set_ylabel("Impedance |Z| ($\Omega$)")
 ax1.grid(True, linestyle=":", linewidth=0.8)
+ax1.set_xlim([100e3, 3.26e6])#180e6])
+ax1.set_ylim([0, 60])#180e6])
 
 ax2 = ax1.twinx()
 ax2.plot(f, phase, linestyle="--", linewidth=2, label="Phase",c='black')
@@ -66,6 +76,7 @@ plt.show()
 # Print results
 # =========================
 print("Inductance at 3.26 MHz: {:.2e} H".format(L_326MHz))
+print(Z[idx_L], phase[idx_L])
 print("Phase at |Z| = 50 Ω: {:.2f} deg at {:.2f} MHz".format(
     phase_at_50, f_at_50 / 1e6))
 print("Self-resonant frequency (|Z| max): {:.2f} MHz".format(f_srf / 1e6))
@@ -75,3 +86,5 @@ if f_phase_neg:
 
 with open("352.pkl", "wb") as f:
     pickle.dump(fig, f)
+
+# fig.savefig("352.pgf")

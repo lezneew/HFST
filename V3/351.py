@@ -1,6 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import pickle
+import matplotlib
+matplotlib.use("pgf")
+
+matplotlib.rcParams.update({
+    "pgf.texsystem": "pdflatex",
+    'font.family': 'serif',
+    'text.usetex': True,
+    'pgf.rcfonts': False,
+})
 
 # =========================
 # CSV-Dateien einlesen
@@ -22,7 +31,7 @@ Z_coax = coax["|Z|"]
 # =========================
 # Plot
 # =========================
-fig, ax = plt.subplots(figsize=(8, 5))
+fig, ax = plt.subplots(figsize=(6.3, 3.5))
 
 # Carbon resistor
 ax.plot(f_carbon, Rs_carbon,
@@ -48,7 +57,7 @@ ax.plot(f_coax, Z_coax,
 # Layout
 # =========================
 ax.set_xlabel("Frequency (Hz)")
-ax.set_ylabel("Resistance / Impedance (Ω)")
+ax.set_ylabel(r"Resistance / Impedance ($\Omega$)")
 ax.set_title("Comparison of Resistance and Impedance\nCarbon Resistor vs. Coaxial Termination")
 
 ax.grid(True, which="both", linestyle=":", linewidth=0.8)
@@ -61,7 +70,6 @@ fig.tight_layout()
 # =========================
 # Figure als Pickle speichern
 # =========================
-with open("351.pkl", "wb") as f:
-    pickle.dump(fig, f)
+fig.savefig("351.pgf")
 
 plt.show()
