@@ -1,0 +1,254 @@
+\documentclass[a4paper,12pt]{article}
+
+% --- Pakete ---
+\usepackage[utf8]{inputenc}   % Umlaute direkt eingeben
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}          % Schöne Schrift
+\usepackage{geometry}         % Seitenränder anpassen
+\usepackage{booktabs}         % Für schönere Tabellen
+\usepackage{array}
+\usepackage{setspace}         % Zeilenabstand
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{url}
+\usepackage{todonotes}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{xfp}      % provides \fpeval for calculations
+\usepackage{multirow}
+\usepackage[
+separate-uncertainty = true,
+multi-part-units = repeat
+]{siunitx}
+\usepackage[hidelinks, bookmarks=true]{hyperref}
+\pgfplotsset{compat=1.18}
+
+% --- Einstellungen ---
+\geometry{a4paper, margin=2.5cm}
+\setstretch{1.25}
+
+% --- Dokument ---
+\begin{document}
+	
+	% Titel
+	\begin{center}
+		{\LARGE \textbf{Praktikum Hochfrequenz-Schaltungstechnik WS25/26}} \\[1em]
+		{\large  \textbf{Bericht}} \\[0.5em]
+	\end{center}
+	
+\begin{center}
+	\begin{tabular}{|l|p{4cm}|l|p{4cm}|}
+		\hline
+		\textbf{Name:} &  Sebastian Grigorevski & \textbf{Matrikelnr.:} &  35690104 \\
+		\hline
+		\textbf{Versuchsnr.:} & 4 & \textbf{Datum:} & \today \\
+		\hline
+	\end{tabular}
+\end{center}
+	
+	\vspace{1cm}
+	\setcounter{section}{4}  % setzt den Section Zähler auf 1
+	\setcounter{subsection}{4}  % setzt den Subsection Zähler auf 5
+	\setcounter{subsubsection}{0}  % setzt den Subsubsection Zähler auf 0
+
+	\subsubsection{}
+	
+	At 1 M$\Omega$ the DSO acts as a high resistance measurment tool and it measures the value of the source
+	When changing the input impedance of the DSO from 1 M$\Omega$ to 50 $\Omega$ by putting a terminator in parallel to the DSO following change can be observed: The measured voltage is half the value from before due to the voltage divider in the matched system.
+	
+	\subsubsection{}
+
+	The results of the FFT of a rectangle, triangle and a sawtooth wave are displayed in following table:
+	
+	\begin{table}[h]
+	\centering
+		\caption{Fourier coefficients comparison}
+	\begin{tabular}{l|c|c}
+		Signal  & $a_n$ & $b_n$ \\ \hline
+		Rectangle  & $0$ & $\frac{1-(-1)^n}{\pi n}$ \\
+		Triangle  & $\frac{2}{\pi^2}\frac{1-(-1)^n}{n^2}$ & $0$ \\
+		Sawtooth  & $0$ & $-\frac{2(-1)^{n}}{n}$
+	\end{tabular}
+	\end{table}
+
+	The firs difference lays in the symmetry of the signal shapes. Both rectangle and sawtooth signals as displayed in \cite{matheonline_fourier_tutorial} are anti symmetric, thus they only have sine contributions as can be seen from 
+	\[
+	f(x) = \frac{a_0}{2} + \sum_{n=1}^\infty \left( a_n \cos(nx) + b_n \sin(nx) \right).
+	\]
+	The triangle function on the other hand is symmetric and only consists of cosines.
+	
+	The rectangle and the triangle functions only have uneven harmonics since the nominator terminates at even multiples on the base frequency. Therefore their frequency components are at $f, 3f, 5f ...$ . Where as the saw signal is composed from all multiple harmonics of the base frequency. 
+	
+	Further the rectangle and the sawtooth Fourier coefficients decay by $b_n\sim 1/n$ for higher harmonics. The triangle components are proportional with $a_n\sim 1/n^2$, meaning less influence from higher harmonics than with the other signal shapes.
+	
+	\subsubsection{}
+	
+	The amplitudes of the harmonics were determined using an FFT measurement and are
+	given in decibels. The fundamental at \(f_1 = 500\,\mathrm{kHz}\) is used as the
+	reference.
+	
+	\begin{table}[h]
+		\centering		
+		\caption{FFT measurement values of the measured voltages}
+		\label{tab:fft}
+		\begin{tabular}{c c c c c c}
+			\hline
+			Harmonic & Frequency & Sine [dB] & Rectangular [dB] & Triangular [dB] & Sawtooth [dB] \\
+			\hline
+			1 & \(500\,\mathrm{kHz}\) & \(+10\) & \(+12.4\) & \(+8\) & \(+5.6\) \\
+			2 & \(1.0\,\mathrm{MHz}\) & \(-47.2\) & \(-45.6\) & \(-65\) & \(-1.2\) \\
+			3 & \(1.5\,\mathrm{MHz}\) & \(-64.0\) & \(-2\) & \(-14\) & \(-5.6\) \\
+			4 & \(2.0\,\mathrm{MHz}\) & \(-52.4\) & \(-41.6\) & \(-67.2\) & \(-8.4\) \\
+			5 & \(2.5\,\mathrm{MHz}\) & \(-56.4\) & \(-3.6\) & \(-23.6\) & \(-9.6\) \\
+			6 & \(3.0\,\mathrm{MHz}\) & \(-54.0\) & \(-\) & \(-64\) & \(-12\) \\
+			7 & \(3.5\,\mathrm{MHz}\) & \(-60.8\) & \(-6.4\) & \(-29.2\) & \(-13.2\) \\
+			\hline
+		\end{tabular}
+
+	\end{table}
+	
+	The harmonic distortion factor is defined as
+	\[
+	\mathrm{THD}=\frac{\sqrt{U_2^2+U_3^2+U_4^2+\dots}}{U_1} \cite{klirr}
+	\]
+	Since the harmonic amplitudes are given in decibels, they must first be converted to
+	linear amplitude ratios:
+	
+	\[
+	\frac{U_n}{U_1}
+	=
+	10^{\frac{L_n - L_1}{20}}
+	\]
+	
+	Substituting this expression into the THD definition yields:
+	
+	\[
+	\mathrm{THD}
+	=
+	\sqrt{
+		\sum_{n=2}^{N}
+		\left(10^{\frac{L_n - L_1}{20}}\right)^2
+	}
+	=
+	\sqrt{
+		\sum_{n=2}^{N}
+		10^{\frac{L_n - L_1}{10}}
+	}
+	\]
+	
+	Using the measured FFT values, the following result is obtained:
+	
+	\[
+	\mathrm{THD} = 1.79 \times 10^{-3} \equiv 0.179\%
+	\]
+	
+	Compared with the measurements of the spectrum analyzer shown in fig. \ref{fig:four_signals} the distinct peak at 500 kHz is visible while further harmonics either do not appear or are overshadowed by noise.
+	
+	Further a difference between the DSO and the spectrum analyzer results can be observed in the scaling where the spectrum analyzer defines the ratio with input and output power. Nevertheless both instruments confirm the discussed theoretical characteristics where the rectangle and the triangle signals only contain peaks at uneven harmonics as also can be seen in table \ref{tab:fft}. There both instruments show a quicker decay with the triangle signal as expected. The sawtooth signal also shows matching characteristics and peaks between instruments and theory.
+	
+	One difference remains at the sine wave measurement where the DSO captures higher order peaks slightly above the noise level while the analyzer lacks those peaks which in an ideal sine wave are not supposed to appear.
+	
+%	\begin{figure}[H]
+%		\centering
+%		\input{443-sine.pgf}
+%		\caption{Measured frequency content with a spectrum analyzer as a function of frequency of a sine signal.}
+%		\label{fig:443-sine}
+%	\end{figure}
+%	
+	\begin{figure}[H]
+		\centering
+		\input{four_signals.pgf}
+		\caption{Measured frequency content with a spectrum analyzer as a function of frequency of different signal shapes.}
+		\label{fig:four_signals}
+	\end{figure}
+	
+	\subsubsection{}
+	
+	Figure \ref{fig:444} shows different amplitude modulations of a 500 kHz carrier sine wave. The top two graphs display modulation frequencies of 50 kHz at modulation indexes of 70 and 20 \% and the bottom graphs show similar modulations but at a modulation frequency of 25 kHz.
+	The frequency contents of the 50 kHz modulated signal are not always higher than the contents of the 25 kHz modulated signal. For the same carrier frequency the side bands occur at $f_\mathrm{carrier} \pm f_\mathrm{modulation}$. Therefore for 50 kHz the bands are at 450 kHz and 550 kHz and for 25 kHz the side bands are at 475 kHz and 525 kHz. Thus the lower side band of the 50 kHz signal is lower than the lower side band of the 25 kHz signal.
+	
+	The modulation index does not have an affect on the frequency of the side bands, but on the amplitudes of the bands.
+	It is also observable that the modulation frequency has little affect on the relative amplitudes of the harmonics and mainly determines the frequency distance to the carrier wave.
+		
+	\begin{figure}[H]
+		\centering
+		\input{444.pgf}
+		\caption{Measured frequency content with a spectrum analyzer as a function of frequency of sine waves with different modulation frequencies and different modulation indexes.}
+		\label{fig:444}
+	\end{figure}
+	
+	\subsubsection{}
+	
+	\begin{figure}[H]
+		\centering
+		\input{445.pgf}
+		\caption{Measured frequency content of rectangular waves and a rectangular modulated sine wave.}
+		\label{fig:445}
+	\end{figure}
+	
+	The rectangle modulated sine signal shows some similarities to pure rectangle signal. The modulated signal shows side bands (fig. \ref{fig:444} red line) like discussed in the previous section. Moreover these bands including the center band repeat at uneven harmonics like known from a regular rectangle spectrum as can be seen in given figure.
+	
+	\subsubsection{}
+	
+	\begin{figure}[H]
+		\centering
+		\input{446.pgf}
+		\caption{Measured frequency content of a FM modulated 500 kHz sine wave with modulation frequencies at solutions of the Bessel functions.}
+		\label{fig:446}
+	\end{figure}
+
+	A sinusoidal carrier with frequency $f_T = 500\,\mathrm{kHz}$ was frequency modulated using a peak frequency deviation of $\Delta f_T = \pm 100\,\mathrm{kHz}$. The modulation was sinusoidal with modulation frequencies
+	\[
+	f_m = \frac{100\,\mathrm{kHz}}{x_n}, \quad x_n \in \{2.40483,\;3.83171,\;5.13562,\;5.52008\},
+	\]
+	which correspond to the first zeros of the Bessel function $J_0(\beta)$. The FM modulation index is defined as
+	\[
+	\beta = \frac{\Delta f_T}{f_m}% = x_n.
+	\]
+	
+	For sinusoidal FM, the spectrum consists of discrete lines at
+	\[
+	f = f_T \pm n f_m, \quad n = 0,1,\dots,7,
+	\]
+	with amplitudes proportional to the Bessel functions $J_n(\beta)$. At the selected modulation frequencies, $J_0(\beta)=0$, leading to complete carrier suppression, which is clearly observed in the measured spectra. The amplitudes of the sidebands decrease with increasing order $n$, in agreement with the theoretical behavior of the Bessel functions.
+	
+	\begin{table}[h]
+		\centering
+		\caption{Modulation frequencies and qualitative spectral observations}
+		\begin{tabular}{c c c l}
+			\hline
+			$x_n$ & $f_m$ [kHz] & $\beta$ & Observed FM spectrum \\ \hline
+			2.40483 & 41.597 & 2.40 & Few dominant sidebands, wide spacing \\
+			3.83171 & 26.098 & 3.83 & Increased number of visible sidebands \\
+			5.13562 & 19.472 & 5.14 & Dense spectrum, many significant sidebands \\
+			5.52008 & 18.116 & 5.52 & Very wide spectrum, strong higher-order bands \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	A variation of the modulation frequency from $10\,\mathrm{kHz}$ to $50\,\mathrm{kHz}$ showed that decreasing $f_m$ (increasing $\beta$) leads to a broader spectrum with more sidebands, while increasing $f_m$ reduces the occupied bandwidth. Repeating the measurement with a carrier frequency of $200\,\mathrm{kHz}$ resulted in an identical spectral structure shifted in frequency, confirming that the relative sideband amplitudes depend only on the modulation index $\beta$. Overall, the measured amplitude ratios of the sidebands show good agreement with the values predicted by the Bessel functions.
+
+	\begin{figure}[H]
+		\centering
+		\input{446-200.pgf}
+		\caption{Measured frequency content of a FM modulated 200 kHz sine wave with modulation frequencies at solutions of the Bessel functions.}
+		\label{fig:446-200}
+	\end{figure}
+	
+	
+	\subsubsection{}
+	The DCF77 transmitter uses amplitude shift keying (ASK). The carrier at 77.5 kHz is periodically attenuated to about 15 \% of its amplitude, and the duration of the attenuation encodes the binary time information \cite{wiki:DCF77}.
+	
+	\subsubsection{}
+
+	A frequency-modulated signal can be demodulated with an envelope detector by converting the frequency variations into amplitude variations using a frequency-dependent network (LC resonant circuit operated on its slope). The resulting amplitude-modulated signal is then demodulated with a conventional AM envelope detector consisting of a diode, resistor, and capacitor.
+
+	\vfill
+	
+		
+	% --- Bibliography ---
+	\bibliographystyle{plain}
+	\bibliography{referenzen}
+	
+	
+\end{document}

@@ -3,14 +3,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pickle
 import matplotlib
-# matplotlib.use("pgf")
-#
-# matplotlib.rcParams.update({
-#     "pgf.texsystem": "pdflatex",
-#     'font.family': 'serif',
-#     'text.usetex': True,
-#     'pgf.rcfonts': False,
-# })
+matplotlib.use("pgf")
+
+matplotlib.rcParams.update({
+    "pgf.texsystem": "pdflatex",
+    'font.family': 'serif',
+    'text.usetex': True,
+    'pgf.rcfonts': False,
+})
 
 # =========================
 # Load measurement data
@@ -51,18 +51,18 @@ f_phase_neg = f[idx_phase_neg[0]] if len(idx_phase_neg) > 0 else None
 # =========================
 fig, ax1 = plt.subplots(figsize=(6.3, 3.5))
 
-ax1.plot(f, Z, linewidth=2, label="|Z|", c='black')
+ax1.plot(f, Z, linewidth=1, label="|Z|", c='black')
 ax1.set_xlabel("Frequency (Hz)")
 ax1.set_ylabel("Impedance |Z| ($\Omega$)")
 ax1.grid(True, linestyle=":", linewidth=0.8)
-ax1.set_xlim([100e3, 3.26e6])#180e6])
-ax1.set_ylim([0, 60])#180e6])
+ax1.set_xlim([100e3, 180e6])
+# ax1.set_ylim([0, 180e6])
 
 ax2 = ax1.twinx()
-ax2.plot(f, phase, linestyle="--", linewidth=2, label="Phase",c='black')
+ax2.plot(f, phase, linestyle="--", linewidth=1, label="Phase",c='black')
 ax2.set_ylabel("Phase (deg)")
 
-fig.suptitle("Measured Impedance and Phase of Inductor")
+# fig.suptitle("Measured Impedance and Phase of Inductor")
 
 # Legends
 lines1, labels1 = ax1.get_legend_handles_labels()
@@ -87,4 +87,4 @@ if f_phase_neg:
 with open("352.pkl", "wb") as f:
     pickle.dump(fig, f)
 
-# fig.savefig("352.pgf")
+fig.savefig("352.pgf")

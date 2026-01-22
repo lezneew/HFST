@@ -67,12 +67,14 @@ BW_3dB = f_right - f_left
 # Plot Transmission Loss
 # =========================
 fig = plt.figure(figsize=(6.3, 3.5))
-plt.plot(f/1e6, TL_dB, linewidth=2, label="Transmission Loss (dB)")
-plt.plot(f/1e6, RL_dB, linewidth=2, label="Transmission Loss (dB)")
-plt.axvline(f_center/1e6, color='r', linestyle='--', label="Center Frequency")
+plt.plot(f/1e6, TL_dB, linewidth=1, c='black', label="Transmission Loss (dB)")
+plt.plot(f/1e6, RL_dB, '--', linewidth=1, c='black', label="Return loss (dB)")
+plt.xlim(f[0]/1e6, f[-1]/1e6)
+
+plt.axvline(f_center/1e6, color='r', linestyle='--', linewidth=1, label="Center Frequency")
 plt.xlabel("Frequency (MHz)")
 plt.ylabel("Transmission Loss (dB)")
-plt.title("LC Band-Pass Filter Transmission Loss")
+# plt.title("LC Band-Pass Filter Transmission Loss")
 plt.grid(True, linestyle=":", linewidth=0.8)
 plt.legend()
 plt.tight_layout()

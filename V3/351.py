@@ -58,7 +58,7 @@ ax.plot(f_coax, Z_coax,
 # =========================
 ax.set_xlabel("Frequency (Hz)")
 ax.set_ylabel(r"Resistance / Impedance ($\Omega$)")
-ax.set_title("Comparison of Resistance and Impedance\nCarbon Resistor vs. Coaxial Termination")
+# ax.set_title("Comparison of Resistance and Impedance\nCarbon Resistor vs. Coaxial Termination")
 
 ax.grid(True, which="both", linestyle=":", linewidth=0.8)
 ax.legend()

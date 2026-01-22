@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.26)  22 DEC 2025 17:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.26)  23 DEC 2025 16:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -866,13 +866,8 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 {C:/Users/wenze/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{E:/Tex/fonts/
 enc/dvips/lm/lm-ec.enc}{E:/Tex/fonts/enc/dvips/lm/lm-mathit.enc}{E:/Tex/fonts/e
-nc/dvips/lm/lm-mathsy.enc}{E:/Tex/fonts/enc/dvips/lm/lm-rm.enc}] (352.pgf
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-03.
-
-(E:\Tex\tex/latex/lm\t1lmss.fd
-File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) (353.pgf)
+nc/dvips/lm/lm-mathsy.enc}{E:/Tex/fonts/enc/dvips/lm/lm-rm.enc}] (352.pgf)
+(353.pgf)
 
 [2] (354.pgf)
 
@@ -883,19 +878,10 @@ File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 [5] (358.pgf)
 
 [6] (3510.pgf)
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-91.
- (E:\Tex\tex/latex/lm\t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
 
 [7{E:/Tex/fonts/enc/dvips/lm/lm-mathex.enc}] (3513.pgf) (3514.pgf)
 
-[8] (Praktikum_Hochfrequenz_Vorlage_WS2526.bbl
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-)
+[8] (Praktikum_Hochfrequenz_Vorlage_WS2526.bbl)
 
 [9] (Praktikum_Hochfrequenz_Vorlage_WS2526.aux)
  ***********
@@ -904,14 +890,14 @@ L3 programming layer <2024-11-02>
  ***********
 Package rerunfilecheck Info: File `Praktikum_Hochfrequenz_Vorlage_WS2526.out' h
 as not changed.
-(rerunfilecheck)             Checksum: F173F88D9C4ACAA8979A58297873CAB5;640.
+(rerunfilecheck)             Checksum: FC48E2C05E97A8BA98D9A7149FA7C421;687.
  ) 
 Here is how much of TeX's memory you used:
- 33304 strings out of 473681
- 767321 string characters out of 5737168
- 1317265 words of memory out of 5000000
- 55767 multiletter control sequences out of 15000+600000
- 613824 words of font info for 69 fonts, out of 8000000 for 9000
+ 33238 strings out of 473681
+ 766186 string characters out of 5737168
+ 1320276 words of memory out of 5000000
+ 55703 multiletter control sequences out of 15000+600000
+ 612214 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,8n,101p,792b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <E:/Tex/fonts/type1/public/lm/lmbx12.pfb><E:/Tex/fonts/type1/public/lm/lmex10
@@ -920,13 +906,12 @@ i12.pfb><E:/Tex/fonts/type1/public/lm/lmmi6.pfb><E:/Tex/fonts/type1/public/lm/l
 mmi8.pfb><E:/Tex/fonts/type1/public/lm/lmr10.pfb><E:/Tex/fonts/type1/public/lm/
 lmr12.pfb><E:/Tex/fonts/type1/public/lm/lmr6.pfb><E:/Tex/fonts/type1/public/lm/
 lmr7.pfb><E:/Tex/fonts/type1/public/lm/lmr8.pfb><E:/Tex/fonts/type1/public/lm/l
-mss10.pfb><E:/Tex/fonts/type1/public/lm/lmss12.pfb><E:/Tex/fonts/type1/public/l
-m/lmsy10.pfb><E:/Tex/fonts/type1/public/lm/lmsy6.pfb><E:/Tex/fonts/type1/public
-/lm/lmsy8.pfb><E:/Tex/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Praktikum_Hochfrequenz_Vorlage_WS2526.pdf (9 pages, 377865 by
+mri12.pfb><E:/Tex/fonts/type1/public/lm/lmsy10.pfb><E:/Tex/fonts/type1/public/l
+m/lmsy6.pfb><E:/Tex/fonts/type1/public/lm/lmsy8.pfb>
+Output written on Praktikum_Hochfrequenz_Vorlage_WS2526.pdf (9 pages, 342811 by
 tes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 239 PDF objects out of 1000 (max. 8388607)
+ 42 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 

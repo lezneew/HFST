@@ -53,18 +53,19 @@ L2 = v * tau2 / 2
 # =========================
 fig, ax = plt.subplots(figsize=(6.3, 3.5))
 
-ax.plot(f1, p1, linewidth=2, label="Cable 1 – Measured phase")
+ax.plot(f1, p1, linewidth=1, c='black', label="Cable 1 – Measured phase")
 # ax.plot(f1, np.polyval(coef1, f1), "--", linewidth=2, label="Cable 1 – Fit")
 
-ax.plot(f2, p2, linewidth=2, label="Cable 2 – Measured phase")
+ax.plot(f2, p2, "--", linewidth=1, c='black', label="Cable 2 – Measured phase")
 # ax.plot(f2, np.polyval(coef2, f2), "--", linewidth=2, label="Cable 2 – Fit")
+plt.xlim(f1[0], f1[-1])
 
 ax.set_xlabel("Frequency (Hz)")
 ax.set_ylabel("Phase of Return Loss (deg)")
-ax.set_title("Phase of Return Loss vs Frequency")
+# ax.set_title("Phase of Return Loss vs Frequency")
 
 ax.grid(True, linestyle=":", linewidth=0.8)
-ax.legend()
+ax.legend(loc="right")
 fig.tight_layout()
 
 # =========================

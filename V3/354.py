@@ -33,12 +33,13 @@ Z_min = Z[idx_min]
 # =========================
 fig, ax = plt.subplots(figsize=(6.3, 3.5))
 
-ax.plot(f, Z, linewidth=2, label="|Z| (Quartz)", c='black')
+ax.plot(f, Z, linewidth=1, label="|Z| (Quartz)", c='black')
 ax.scatter(f_res, Z_min, zorder=5, label="Resonance", c='black')
+plt.xlim(f[0], f[-1])
 
 ax.set_xlabel("Frequency (Hz)")
 ax.set_ylabel("Impedance |Z| ($\Omega)")
-ax.set_title("Measured Quartz Impedance vs Frequency")
+# ax.set_title("Measured Quartz Impedance vs Frequency")
 
 ax.grid(True, linestyle=":", linewidth=0.8)
 ax.legend()

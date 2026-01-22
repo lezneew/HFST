@@ -1,3 +1,32 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{agilent_vna}
+{Agilent Technologies}.
+\newblock {\em Understanding the Fundamental Principles of Vector Network
+  Analysis}.
+\newblock Agilent Technologies, 2007.
+\newblock Application Note.
+
+\bibitem{bangert}
+Axel Bangert.
+\newblock {\em Praktikum Hochfrequenz-Schaltungstechnik}.
+\newblock Kassel.
+
+\bibitem{bohmer2018}
+E.~Böhmer, D.~Ehrhardt, and W.~Oberschelp.
+\newblock {\em Elemente der angewandten Elektronik: Kompendium für Ausbildung
+  und Beruf}.
+\newblock 17., korrigierte und verbesserte Auflage, 2018.
+
+\bibitem{ni_hf}
+{National Instruments}.
+\newblock {\em HF-Komponenten unter der Mess-Lupe}.
+\newblock National Instruments, 2010.
+\newblock Fachartikel.
+
+\bibitem{tietze}
+Ulrich Tietze, Christoph Schenk, and Eberhard Gamm.
+\newblock {\em Halbleiter-Schaltungstechnik}.
+\newblock Springer-Verlag, Berlin, Heidelberg, 13 edition, 2018.
 
 \end{thebibliography}

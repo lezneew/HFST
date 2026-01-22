@@ -1,0 +1,136 @@
+\documentclass[a4paper,12pt]{article}
+
+% --- Pakete ---
+\usepackage[utf8]{inputenc}   % Umlaute direkt eingeben
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}          % Schöne Schrift
+\usepackage{geometry}         % Seitenränder anpassen
+\usepackage{booktabs}         % Für schönere Tabellen
+\usepackage{array}
+\usepackage{setspace}         % Zeilenabstand
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{url}
+\usepackage{todonotes}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{xfp}      % provides \fpeval for calculations
+\usepackage{multirow}
+\usepackage[
+separate-uncertainty = true,
+multi-part-units = repeat
+]{siunitx}
+\usepackage[hidelinks, bookmarks=true]{hyperref}
+\pgfplotsset{compat=1.18}
+
+% --- Einstellungen ---
+\geometry{a4paper, margin=2.5cm}
+\setstretch{1.25}
+
+% --- Dokument ---
+\begin{document}
+	
+	% Titel
+	\begin{center}
+		{\LARGE \textbf{Praktikum Hochfrequenz-Schaltungstechnik WS25/26}} \\[1em]
+		{\large  \textbf{Bericht}} \\[0.5em]
+	\end{center}
+	
+\begin{center}
+	\begin{tabular}{|l|p{4cm}|l|p{4cm}|}
+		\hline
+		\textbf{Name:} &  Sebastian Grigorevski & \textbf{Matrikelnr.:} &  35690104 \\
+		\hline
+		\textbf{Versuchsnr.:} & 5 & \textbf{Datum:} & \today \\
+		\hline
+	\end{tabular}
+\end{center}
+	
+	\vspace{1cm}
+	\setcounter{section}{5}  % setzt den Section Zähler auf 1
+	\setcounter{subsection}{5}  % setzt den Subsection Zähler auf 5
+	\setcounter{subsubsection}{0}  % setzt den Subsubsection Zähler auf 0
+
+	\subsubsection{}
+	
+	Laut dem Datenblatt zum CMOS-Sechsfach-Inverter 74AC14 \cite{bangert} hat der Pulsgenerator eine Anstiegszeit von $t_\mathrm{rise} = 3\,$ns and a fall time of $t_\mathrm{fall} = 3\,$ns. According to the approximation formula of the rise time of DSOs 
+	\[
+	t_o = \frac{0.35}{BW} 
+	\]
+	the rise time for a 60 MHz (120 MHz) DSO are $t_o = 5.8\,$ns ($t_o = 2.9\,$ns) \cite{bangert}. Thus the DSO cannot resolve rise times lower than those calculated values. Since the rise and fall times are significantly faster the given DSOs are not able to measure them correctly. This can be confirmed by a measurement with a 60 MHz where the rise time was noted at 5.5 ns and the fall time was 4.5 ns being much higher than the theoretical value.
+	
+	\subsubsection{}
+	The formula for reflection coefficients is stated as	
+	\[
+	\Gamma = \frac{Z_\mathrm{t} - Z_0}{Z_\mathrm{t} + Z_0}
+	\]	
+	where $Z_\mathrm{t}$ is the termination impedance and $Z_0 = 50\,\Omega$ is the impedance of the wire. For different termination impedances the theoretical reflection coefficients $\Gamma_\mathrm{theo.}$ are calculated in table \ref{tab:reflection}. 
+	
+	\begin{table}[h]
+		\centering
+		\label{tab:reflection}
+		\caption{theoretical and measured reflection coefficients at a wire impedance of $Z_0 = 50\,\Omega$}
+		\begin{tabular}{l|c|c|c}
+			
+			$Z_\mathrm{t}$ & $50\,\Omega$ & $75\,\Omega$ & $93\,\Omega$ \\
+			\hline
+			$\Gamma_\mathrm{theo.}$ & 0 & 0.20 & 0.30 \\
+
+			$\Gamma_\mathrm{measured}$ &  &  &  \\
+			
+		\end{tabular}
+
+	\end{table}
+	
+	Differences can occur due to losses in the wire since the isolation between inner wire and cylindrical conductor deafens the signal due to its magnetic properties.
+
+	\subsubsection{}	
+	The cable lengths were determined from the measured time difference between the incident and the reflected pulse.
+	Since the signal propagates to the cable end and back, the cable length is given by
+	
+	\[
+	l = \frac{c \cdot k \cdot \Delta t}{2}
+	\]
+	
+	where $c$ is the speed of light and $k$ is the velocity factor of the cable.
+	The time difference $\Delta t$ was obtained from the oscilloscope display using the number of divisions and the selected time base.
+	\begin{itemize}
+		\item Measure the time difference $\Delta t$ between the incident and reflected pulse on the oscilloscope.
+		\item Convert the oscilloscope reading from divisions to time:
+		\[
+		\Delta t = N_\mathrm{Div} \cdot t_\mathrm{Div}
+		\]
+		\item Take measurements for both open and short-circuited cable ends.
+		\item Calculate the mean value to reduce measurement uncertainty:
+		\[
+		\Delta t_\mathrm{mean} = \frac{\Delta t_\mathrm{open} + \Delta t_\mathrm{short}}{2}
+		\]
+		\item Determine the cable length using the cable's velocity factor $k$:
+	\end{itemize}
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			Cable type & $\Delta t$ [ns] & $k$ & calc. Length $l$ [m] & Measured Length $l$ [m]\\
+			\hline
+			RG58 & 38.5 & 0.66 & 3.8 & 3.59\\
+			RG188 & 49.0 & 0.70 & 5.1 & 4.52\\
+			SAT (white) & 30.5 & 0.82 & 3.75 & \\
+			\hline
+		\end{tabular}
+		\caption{Cable lengths calculated from propagation delay measurements}
+	\end{table}
+	
+	The results obtained for open and short-circuited cable terminations agree within the measurement uncertainty.
+	Remaining deviations are mainly caused by reading errors, additional cable lengths due to T-connectors.
+
+	\vfill
+	
+		
+	% --- Bibliography ---
+	\bibliographystyle{plain}
+	\bibliography{referenzen}
+	
+	
+\end{document}

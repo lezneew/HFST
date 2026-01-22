@@ -38,22 +38,21 @@
 		\hline
 		\textbf{Name:} &  Sebastian Grigorevski & \textbf{Matrikelnr.:} &  35690104 \\
 		\hline
-		\textbf{Versuchsnr.:} & 1 & \textbf{Datum:} & 11.11.2025 \\
+		\textbf{Versuchsnr.:} & 3 & \textbf{Datum:} & 23.12.2025 \\
 		\hline
 	\end{tabular}
 \end{center}
 	
 	\vspace{1cm}
-	\setcounter{section}{1}  % setzt den Section Zähler auf 1
+	\setcounter{section}{3}  % setzt den Section Zähler auf 1
 	\setcounter{subsection}{5}  % setzt den Subsection Zähler auf 5
 	\setcounter{subsubsection}{0}  % setzt den Subsubsection Zähler auf 0
 
 	\subsubsection{}
-	Figure \ref{fig:resistors} shows the measured resistance $R_s$ and impedance $|Z|$ of a carbon resistor and a coaxial termination over a frequency range between 1 MHz and 30 MHz. % \cite[]{ltspice}. 
+	Figure \ref{fig:resistors} shows the measured resistance $R_s$ and impedance $|Z|$ of a carbon resistor and a coaxial termination over a frequency range between 1 MHz and 30 MHz.
 	The coaxial termination exhibits behavior very close to the ideal expectation. Both the $R_s$ and the $|Z|$ remain nearly constant at $\sim 50 \Omega$ over the entire frequency range. Thus it it well impedance matched.
 	
 	In contrast, the carbon resistor exhibits a clear frequency dependency. The impedance magnitude increases with frequency and exceeds 51~$\Omega$ at higher frequencies. This behavior is caused by parasitic inductive effects inherent to the resistor’s internal structure and material.
-	
 	
 	\begin{figure}[H]
 		\centering
@@ -68,11 +67,11 @@
 	Figure \ref{fig:352} shows the measured impedance magnitude $|Z|$ and phase of the inductor as a
 	function of frequency.
 	At $f = 3.26\,\mathrm{MHz}$, the inductance is measured at $\sim50 \Omega$. The theoretical value is obtained from
-	$|Z| \approx X_L = 2\pi f L \approx 45 \Omega$ with L=2.2 $\mu$H and is close to the nominal value of the inductor.
+	$|Z| \approx X_L = 2\pi f L \approx 45 \Omega$ with L=2.2 $\mu$H.
 	Small deviations are caused by series resistance and measurement uncertainty.
 	The impedance reaches $|Z| = 50\,\Omega$ at low frequency where the phase is still
 	strongly positive ($+88.86^\circ$), confirming inductive behavior.
-	A pronounced maximum of $|Z|$ occurs at approximately $30\,\mathrm{MHz}$, indicating
+	A pronounced maximum of $|Z|$ occurs at $\sim30\,\mathrm{MHz}$, indicating
 	the self-resonant frequency of the inductor due to parasitic capacitance.
 	Therefore, the maximum operating frequency of the inductor is below resonance.
 	
@@ -90,14 +89,14 @@
 %	transition of approximately $180^\circ$, which is characteristic of quartz resonance.
 	
 	The $3\,\mathrm{dB}$ bandwidth is determined from the frequencies where the return loss
-	is $3\,\mathrm{dB}$ above the minimum. From the figure, a bandwidth of approximately
+	is $3\,\mathrm{dB}$ above the minimum. From the figure \ref{fig:353}, a bandwidth of approximately
 	$\Delta f_{3\mathrm{dB}} \approx 540\,\mathrm{Hz}$ is obtained.
 	The quality factor of the quartz resonator is therefore
 	\[
 	Q = \frac{f_0}{\Delta f_{3\mathrm{dB}}} \approx \frac{9.8283\,\mathrm{MHz}}{540\,\mathrm{Hz}}
 	\approx 18200.45
 	\]
-	indicating a very high Q and highly frequency-selective resonator.
+	indicating a very high Q and highly frequency-selective resonator \cite{bohmer2018}.
 	
 	\begin{figure}[H]
 		\centering
@@ -110,7 +109,7 @@
 	\begin{figure}[H]
 		\centering
 		\input{354.pgf}
-		\caption{Measured return loss and phase of a quartz resonatoras a function of frequency.}
+		\caption{Measured impedance of a quartz resonator as a function of frequency.}
 		\label{fig:354}
 	\end{figure}
 	Figure~\ref{fig:354} shows the measured impedance magnitude $|Z|$ of the quartz resonator versus
@@ -120,7 +119,7 @@
 	At resonance, the inductive and capacitive reactances of the quartz cancel each other,
 	leaving only the small series resistance. As a result, the impedance reaches
 	its lowest value. Away from resonance, reactive effects dominate, causing the
-	impedance to increase rapidly.
+	impedance to increase rapidly \cite{tietze}.
 	
 	
 	\subsubsection{}\label{ch:355}
@@ -128,10 +127,10 @@
 	\begin{figure}[H]
 		\centering
 		\input{355.pgf}
-		\caption{Measured return loss and phase of a quartz resonatoras a function of frequency.}
+		\caption{Measured impedance of an unknown part as a function of frequency.}
 		\label{fig:355}
 	\end{figure}
-	The measured series resistance is 1 $\Omega$. To compare this value to the theoretical value the equation for our reflection at -0.18 dB and 90 degree needs to be evaluated:
+	The measured series resistance is 1 $\Omega$. To compare this value to the theoretical value the equation for our reflection at -0.18 dB and 90 degree needs to be evaluated \cite{bangert}:
 	\[r=\frac{Z_L - Z_0}{Z_L + Z_0} \Leftrightarrow Z_L = Z_0 \frac{1 + r}{1 - r} \approx 1 + \mathrm{j} \, 50\Omega\]
 	\[L = \frac{X_L}{2\pi f} = \frac{50}{2\pi \cdot 17.434 \, \mathrm{MHz}} \approx 456,44 \, \mathrm{nH}\]
 	This result matches the measurement very well.
@@ -141,19 +140,19 @@
 	\begin{figure}[H]
 		\centering
 		\input{356.pgf}
-		\caption{Measured return loss and phase of a quartz resonatoras a function of frequency.}
+		\caption{Measured phase of return loss of two different cables with different lengths a function of frequency.}
 		\label{fig:356}
 	\end{figure}
-	From the formula of the refection coefficient $r = r_L \cdot e^{-j2\beta l}$ and the fact that we can distinctly have maxima at a phase of 180 degree as seen in fig. \ref{fig:356}, $-j2\beta l$ is set to $\pi$. in addition it is known that $\beta = \frac{2\pi}{\lambda}$ which results in a length of $l = \frac{\lambda}{4}$. After considering a velocity factor of 0.66 and the relation $\lambda_0 = \frac{c_0}{f}$ to connect the frequency to the wave length the resulting equation to calculate the lengths of the cables is $l = \frac{c_0 \cdot VF}{4 \cdot f}$. 
+	From the formula of the refection coefficient $r = r_L \cdot e^{-j2\beta l}$ and the fact that we can distinctly have maxima at a phase of 180 degree as seen in fig. \ref{fig:356}, $-j2\beta l$ is set to $\pi$. in addition it is known that $\beta = \frac{2\pi}{\lambda}$ which results in a length of $l = \frac{\lambda}{4}$. After considering a velocity factor of 0.66 and the relation $\lambda_0 = \frac{c_0}{f}$ to connect the frequency to the wave length the resulting equation to calculate the lengths of the cables is $l = \frac{c_0 \cdot VF}{4 \cdot f}$ \cite{agilent_vna}. 
 	Cable 1 has  the first peak at 24 339 327 Hz leading to a length of 2.7 m. Cable 2 has a peak at 18 359 836 Hz thus a length of 2.03 m.
 
 	
 	\subsubsection{}
-	Figure \ref{fig:357} shows the return loss of a matching network. A resonance can be observed at 14.238 MHz with a loss of -25.51 dB. The SWR is defined as $\frac{1+\rho}{1-\rho}$. With the measured return loss the SWR is 1.11.
+	Figure \ref{fig:357} shows the return loss of a matching network. A resonance can be observed at 14.238 MHz with a loss of -25.51 dB. The SWR is defined as $\frac{1+\rho}{1-\rho}$ \cite{bangert}. With the measured return loss the SWR is 1.11.
 	\begin{figure}[H]
 		\centering
 		\input{357.pgf}
-		\caption{Measured return loss and phase of a quartz resonatoras a function of frequency.}
+		\caption{Measured Return Loss of Matching Network as a function of frequency.}
 		\label{fig:357}
 	\end{figure}
 	
@@ -161,10 +160,10 @@
 	\begin{figure}[H]
 		\centering
 		\input{358.pgf}
-		\caption{Measured return loss and phase of a quartz resonatoras a function of frequency.}
+		\caption{Measured return loss of a antenna as a function of frequency.}
 		\label{fig:358}
 	\end{figure}
-	Figure \ref{fig:358} shows a minimum in the reflection coefficient at approximately \(91.9\,\mathrm{MHz}\), where the magnitude is measured as \(-11.85\,\mathrm{dB}\). Substituting this value into the equation below gives the standing-wave ratio (SWR):
+	Figure \ref{fig:358} shows a minimum in the reflection coefficient at approximately \(91.9\,\mathrm{MHz}\), where the magnitude is measured as \(-11.85\,\mathrm{dB}\). Substituting this value into the equation below gives the standing-wave ratio (SWR) \cite{bangert}:
 	
 	\[
 	\mathrm{SWR} = \frac{1 + 10^{\left(\frac{|S_{11}|_{\mathrm{dB}}}{20}\right)}}{1 - 10^{\left(\frac{|S_{11}|_{\mathrm{dB}}}{20}\right)}} = 1.69
@@ -180,7 +179,7 @@
 	For a monopole antenna, the approximate length is given by the quarter-wavelength rule $l = \frac{\lambda}{4}$.
 	Substituting the free-space wavelength relation \(\lambda = c_0 / f\) yields:
 	\[
-	l = \frac{c_0}{4 f} = \frac{c_0}{4 \cdot 91.601\,\mathrm{MHz}} \approx 0.816\,\mathrm{m} = 0.818\,\mathrm{m}
+	l = \frac{c_0}{4 f} = \frac{c_0}{4 \cdot 91.601\,\mathrm{MHz}} = 0.818\,\mathrm{m}
 	\]
 	
 	\subsubsection{}
@@ -188,13 +187,13 @@
 	\begin{figure}[H]
 		\centering
 		\input{3510.pgf}
-		\caption{\url{https://tenor.com/de/view/will-smith-gif-3197096261065537476}}
+		\caption{Transmission loss of three different attenuators}%\url{https://tenor.com/de/view/will-smith-gif-3197096261065537476}{gg}}
 		\label{fig:3510}
 	\end{figure}
 	
 	\subsubsection{}
 	
-	All three attenuators can be used for the entire frequency range of 8 GHz as can be seen in fig. \ref{fig:3510}. The given cutoff frequency was given on the elements much higher at 18 GHz.
+	All three attenuators can be used for the entire frequency range of 8 GHz as can be seen in fig. \ref{fig:3510}. The cutoff frequency was given on the elements and is much higher at 18 GHz.
 	
 	\subsubsection{}
 	Since the ground creates a nearly perfect reflection due to having a impedance of zero, the signal passes through the attenuator two times resulting in a doubled damping thus a doubled return loss: 12 dB, 20 dB, 40 dB.
@@ -203,18 +202,19 @@
 	\begin{figure}[H]
 		\centering
 		\input{3513.pgf}
-		\caption{Measured return loss and phase of a quartz resonatoras a function of frequency.}
+		\caption{Measured LC Band-Pass Filter Transmission Loss a function of frequency.}
 		\label{fig:3513}
 	\end{figure}
 	\subsubsection{}
+	The  6 dB bandwidth of the IF filter is $\sim 270$ kHz as can be seen in fig. \ref{fig:3514}. It is important to use double the 3 dB threshold because the IF filter only has one filter stage compared with the LC filter.
 			\begin{figure}[H]
 		\centering
 		\input{3514.pgf}
-		\caption{Measured return loss and phase of a quartz resonatoras a function of frequency.}
+		\caption{Measured IF Filter Transmission Loss as a function of frequency.}
 		\label{fig:3514}
 	\end{figure}
-	
-	
+	\subsubsection{}
+	At the center frequency, the LC band-pass filter shows significantly lower insertion loss than the IF filter. The LC filter exhibits a transmission coefficient of -0.18 dB, whereas the IF filter shows -11 dB. At twice the center frequency, where strong attenuation is desired the LC filter attenuates the signal by only -6 dB, while the IF filter provides much stronger suppression. Consequently, the IF filter offers superior out-of-band rejection, whereas the LC band-pass filter provides better transmission at the center frequency.
 	\vfill
 	
 		

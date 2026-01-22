@@ -65,15 +65,16 @@ else:
 # =========================
 fig, ax = plt.subplots(figsize=(6.3, 3.5))
 
-ax.plot(f, Z, linewidth=2, label="|Z|",c='black')
+ax.plot(f, Z, linewidth=1, label="|Z|",c='black')
 # ax.plot(f, Rs, linewidth=2, label="R_s", linestyle="--", c='black')
+plt.xlim(f[0], f[-1])
 
 ax.axhline(Z0, linestyle=":", linewidth=1.5, label="Z_0 = 50 $\Omega$", c='black')
 ax.scatter(f_match, Z[idx], zorder=5, label="|Z| = Z_0", c='black')
 
 ax.set_xlabel("Frequency (Hz)")
 ax.set_ylabel("Impedance |Z| ($\Omega$)")
-ax.set_title("Measured Impedance of Unknown Component")
+# ax.set_title("Measured Impedance of Unknown Component")
 
 ax.grid(True, linestyle=":", linewidth=0.8)
 ax.legend()

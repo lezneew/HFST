@@ -32,7 +32,7 @@ RL_min = RL[idx_min]
 # =========================
 # 3 dB bandwidth
 # =========================
-RL_3dB = -3#RL_min + 3
+RL_3dB = RL_min + 3
 
 # Indices where RL is within 3 dB of minimum
 indices = np.where(RL <= RL_3dB)[0]
@@ -52,8 +52,8 @@ Q = f0 / bandwidth
 fig, ax1 = plt.subplots(figsize=(6.3, 3.5))
 
 # Return loss
-ax1.plot(f, RL, linewidth=2, label="Return Loss (dB)", c='black')
-ax1.axhline(RL_3dB, linestyle=":", linewidth=1.5, label="3 dB level", c='red')
+ax1.plot(f, RL, linewidth=1, label="Return Loss (dB)", c='black')
+ax1.axhline(RL_3dB, linestyle=":", linewidth=1, label="3 dB level", c='red')
 # ax1.axvline(f0, linestyle="--", linewidth=1.5, label="Resonance frequency", c='red')
 
 ax1.set_xlabel("Frequency (Hz)")
@@ -62,10 +62,10 @@ ax1.grid(True, linestyle=":", linewidth=0.8)
 
 # Phase
 ax2 = ax1.twinx()
-ax2.plot(f, phase, linestyle="--", linewidth=2, label="Phase (deg)", c='black')
+ax2.plot(f, phase, linestyle="--", linewidth=1, label="Phase (deg)", c='black')
 ax2.set_ylabel("Phase (deg)")
-
-fig.suptitle("Measured Return Loss and Phase of Quartz Resonator")
+plt.xlim(f[0], f[-1])
+# fig.suptitle("Measured Return Loss and Phase of Quartz Resonator")
 
 # Combined legend
 lines1, labels1 = ax1.get_legend_handles_labels()

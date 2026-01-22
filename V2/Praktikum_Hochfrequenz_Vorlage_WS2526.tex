@@ -143,7 +143,7 @@
 				
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Frequency response of the root mean square voltage V\textsubscript{rms} of Emitter and Kaskode circuits \cite{praktikum}}
+		\caption{Frequency response of the root mean square voltage V\textsubscript{rms} of Emitter and Kaskode circuits}
 		\label{fig: freqgang}
 	\end{figure}
 	
@@ -152,7 +152,7 @@
 	Considering figure \ref{fig: amplif} the amplification at 10 mV lays at $\sim62$ for the emitter circuit and at $\sim30.4$ for the kaskode circuit. 
 	Taking 89 \% of these amplification values results in $A_{\mathrm{emitter},0.89} = \fpeval{62*0.89}$ and $A_{\mathrm{kaskode},0.89} = \fpeval{30.4*0.89}$ for the different circuits. 
 	Looking at the mentioned traces the calculated threshold for the emitter can be found at roughly below 100 mV where the data point is at a factor of 54. Moreover, for the kaskode $A_{\mathrm{kaskode},0.89}$ is reached at $\sim40$ mV (amplification of 27).
-	This point of 0.89 of the amplification is can be translated to the decibel scale with $20 \cdot \log_{10}(0.89) \approx -1$ db \cite{reinhold2023elektronische}.
+	This point of 0.89 of the amplification is can be translated to the decibel scale with $20 \cdot \log_{10}(0.89) \approx -1$ dB \cite{reinhold2023elektronische}.
 	This point where the amplification decreases by one decibel is known as the \textit{compression}-point \cite{Strauss_GrundkursHF_3A}.
 	
 	\begin{figure}[h]
@@ -229,7 +229,7 @@
 				
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Amplification of the root mean square voltage V\textsubscript{rms} of Emitter and Kaskode circuits \cite{praktikum} at their saturation frequencies.}
+		\caption{Amplification of the root mean square voltage V\textsubscript{rms} of Emitter and Kaskode circuits at their saturation frequencies.}
 		\label{fig: amplif}
 	\end{figure}
 
@@ -243,6 +243,8 @@
 	The transistor Q1 itself delivered an amplification of two measuring at $V_\mathrm{rms}=20\,$mV with an effective input voltage of 10 mV at 50 kHz.
 	
 	\subsubsection{}
+	
+	The Miller effect occurs from the transistors’ internal capacitances which introduce input–output feedback and reduce circuit gain. While this effect appears in a common-emitter stage, it is suppressed in a kascode. There, the base is effectively connected to ground through capacitor C2 together with resistors R1 and R2, diverting the AC signal so only a level potential exists at the emitter. Consequently, the feedback path is eliminated.
 	
 	\subsubsection{}
 	
