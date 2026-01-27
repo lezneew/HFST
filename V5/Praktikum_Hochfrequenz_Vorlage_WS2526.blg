@@ -5,10 +5,9 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: referenzen.bib
-Warning--I didn't find a database entry for "pulsdata"
 You've used 1 entry,
             2118 wiz_defined-function locations,
-            503 strings with 4184 characters,
+            502 strings with 4176 characters,
 and the built_in function-call counts, 215 in all, are:
 = -- 19
 > -- 7
@@ -47,4 +46,3 @@ warning$ -- 0
 while$ -- 2
 width$ -- 2
 write$ -- 11
-(There was 1 warning)
