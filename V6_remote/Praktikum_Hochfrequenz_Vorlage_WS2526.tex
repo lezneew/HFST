@@ -50,236 +50,156 @@ multi-part-units = repeat
 \end{center}
 	
 	\vspace{1cm}
-	\setcounter{section}{5}  % setzt den Section Zähler auf 1
-	\setcounter{subsection}{5}  % setzt den Subsection Zähler auf 5
+	\setcounter{section}{6}  % setzt den Section Zähler auf 1
+	\setcounter{subsection}{4}  % setzt den Subsection Zähler auf 5
 	\setcounter{subsubsection}{0}  % setzt den Subsubsection Zähler auf 0
 
 	\subsubsection{}
-	
-	 According to the approximation formula of the rise time of DSOs 
-	\[
-	t_o = \frac{0.35}{BW} 
-	\]
-	the rise time for a 60 MHz (120 MHz) DSO are $t_o = 5.8\,$ns ($t_o = 2.9\,$ns) \cite{bangert}. Thus the DSO cannot resolve rise times lower than those calculated values. The rise and fall times of the inverter are mach faster at 2.05 ns and 1.90 ns (measured with a 350 MHz DSO). Since the rise and fall times are significantly faster the given DSOs are not able to measure them correctly. This can be confirmed by a measurement with a 60 MHz where the rise time was noted at 5.5 ns and the fall time was 4.5 ns being much higher than the actual value.
+The load impedance $Z_L = 136\,\Omega - j34\,\Omega$ at $f = 145\,\mathrm{MHz}$ is matched to a
+system impedance of $Z_0 = 50\,\Omega$ using a series transmission line followed by a parallel
+transmission line.
+
+First, the load impedance is normalized with respect to $Z_0$ and plotted in the Smith chart:
+\[
+z_L = \frac{Z_L}{Z_0} = 2.72 - j0.68.
+\]
+
+A series transmission line with characteristic impedance $Z_0$ is then added. Varying its length causes the reflection coefficient to rotate along a constant magnitude circle in the Smith chart. The length is chosen such that the transformed impedance intersects the admittance circle corresponding to $20\,\mathrm{mS}$ as can be seen in the figure below on the left. 
+At this point, the impedance is converted to the admittance plane. A parallel transmission
+line is connected, and its length is adjusted to move the admittance along a constant admittance
+circle until the chart center is reached:
+\[
+z = 1 + j0.
+\]
+Thus the length of the series cable length is 24 cm and the parallel length is 31 cm to achieve this matching. 
+
+	\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.44\textwidth]{11.png} \includegraphics[width=0.5\textwidth]{12.png}
+		
+	\end{center}
+	\caption{Reflection coefficient for increasing series cable length (left) and for increasing parallel cable length (right)} %
+	\label{fig:642}
+\end{figure}
+
 	
 	\subsubsection{}
-	The formula for reflection coefficients is stated as	
+	For the project \textit{Parallelreihe}, the frequency range is determined in which the difference
+	between the input impedance magnitude of the parallel RC network and its series equivalent
+	remains below
 	\[
-	\Gamma = \frac{Z_\mathrm{t} - Z_0}{Z_\mathrm{t} + Z_0}
-	\]	
-	where $Z_\mathrm{t}$ is the termination impedance and $Z_0 = 50\,\Omega$ is the impedance of the wire. For different termination impedances the theoretical reflection coefficients $\Gamma_\mathrm{theo.}$ are calculated in table \ref{tab:reflection}. 
+	|\Delta Z| < 0.2\,\Omega
+	\]
+	and simultaneously the phase difference satisfies
+	\[
+	|\Delta \Phi| < 1^\circ.
+	\]
+	From the figure \ref{fig:642} the frequency range that satisfies these conditions is determined at $f \in [0.95, 1.1]\,$GHz for a 220 $\Omega$ resistor. The figure shows the differences $\triangle Z = |Z_\mathrm{parallel}-Z_\mathrm{series}|$ and $\triangle \phi = |\phi_\mathrm{parallel}-\phi_\mathrm{series}|$ between the series and parallel circuits.
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=1\textwidth]{642-2.png}
+		\end{center}
+		\caption{Difference in amplitude in $\Omega$ (solid) and phase in degree (dashed) between a parallel and series circuit as a function of frequency in Hz for different resistances Rval} %
+		\label{fig:642}
+	\end{figure}
 	
-	\begin{table}[h]
-		\centering
-		\label{tab:reflection}
-		\caption{theoretical and measured reflection coefficients at a wire impedance of $Z_0 = 50\,\Omega$}
-		\begin{tabular}{l|c|c|c}
-			
-			$Z_\mathrm{t}$ & $50\,\Omega$ & $75\,\Omega$ & $93\,\Omega$ \\
-			\hline
-			$\Gamma_\mathrm{theo.}$ & 0 & 0.20 & 0.30 \\
-
-			$\Gamma_\mathrm{measured}$ &  &  &  \\
-			
-		\end{tabular}
-
-	\end{table}
 	
-	Differences can occur due to losses in the wire since the isolation between inner wire and cylindrical conductor deafens the signal due to its magnetic properties.
+	When doubling or halving the quality factor by using 110 and 440 $\Omega$ as the parallel resistor and calculating its corresponding series circuits significant changes occur. Looking at the curves for 440 $\Omega$ or double the quality factor the frequency range is larger at $f \in [0.86, 1.24]\,$GHz. On the other hand with 110 $\Omega$ the curve of the amplitude difference lays above the 0.2 $\Omega$ line while the phase curve is also narrower. This behavior supports the validity of the conversion formulas $R_\mathrm{series} = R_\mathrm{parallel}/Q^2$ and $X_\mathrm{series} \approx X_\mathrm{parallel}$ for quality factors $Q > 5$ since the frequency range decreases (diminishes) for smaller quality factors and increases for higher quality factors
 
 	\subsubsection{}	
-	The cable lengths were determined from the measured time difference between the incident and the reflected pulse.
-	Since the signal propagates to the cable end and back, the cable length is given by
-	
+	For the matching network designed previously, the complex load impedance is removed and the
+	reference port is shifted to the right side of the circuit. On the left side of the matching
+	network, a resistor of $R=50\,\Omega$ is added to represent the internal resistance of the
+	generator. At the design frequency of $f=145\,\mathrm{MHz}$, the simulation yields an input
+	impedance of
 	\[
-	l = \frac{c \cdot k \cdot \Delta t}{2}
+	Z_{\mathrm{in}} \approx 136 + j34\,\Omega \, ,
+	\]
+	corresponding to a magnitude of approximately $140\,\Omega$ with a phase of $14.1^\circ$.
+	The resulting input reflection coefficient is
+	\[
+	|\Gamma| =     X/R \approx 0.25 \, ,
+	\]
+	indicating a partial mismatch.
+	
+	This behavior arises because the matching network was designed to transform the complex load
+	impedance into $50\,\Omega$ when viewed from the source side. Due to the reciprog network, viewing it from the opposite direction results in the complex conjugate of the
+	original load impedance rather than a matched condition.
+	
+	The type of matching realized by this circuit is therefore a \emph{conjugate impedance match},
+	which is valid only in the design direction and at a single frequency \cite{schau_resonanz_komplexe_anpassung_2018}.
+	
+	\subsubsection{}
+	For a lossless transmission line, the input impedance is given by
+	\[
+	Z_{\mathrm{in}} = Z \frac{Z_L + j Z \tan(\beta l)}{Z + j Z_L \tan(\beta l)} \cite{wiki:Quarter-wave_impedance_transformer}. 
+	\] 
+	At $l=\lambda/4$, $\tan(\beta l) \rightarrow \infty$, and the expression simplifies to
+	\[
+	R_{\mathrm{in}} = \frac{Z^2}{R_L} \cite{wiki:Quarter-wave_impedance_transformer}.
 	\]
 	
-	where $c$ is the speed of light and $k$ is the velocity factor of the cable.
-	The time difference $\Delta t$ was obtained from the oscilloscope display using the number of divisions and the selected time base.
-	\begin{itemize}
-		\item Measure the time difference $\Delta t$ between the incident and reflected pulse on the oscilloscope.
-		\item Convert the oscilloscope reading from divisions to time:
-		\[
-		\Delta t = N_\mathrm{Div} \cdot t_\mathrm{Div}
-		\]
-		\item Take measurements for both open and short-circuited cable ends.
-		\item Calculate the mean value to reduce measurement uncertainty:
-		\[
-		\Delta t_\mathrm{mean} = \frac{\Delta t_\mathrm{open} + \Delta t_\mathrm{short}}{2}
-		\]
-		\item Determine the cable length using the cable's velocity factor $k$:
-	\end{itemize}
+	Simulations are performed for different real load resistances
+	$R_L = 18\,\Omega, 32\,\Omega, 75\,\Omega, 100\,\Omega, 200\,\Omega$
+	and different line impedances
+	$Z = 30\,\Omega, 40\,\Omega, 50\,\Omega, \sqrt{5000}\,\Omega, 100\,\Omega$.
+	In all cases, the simulated input resistance agrees with the analytical relation within small angle deviations as can be seen in table \ref{tab:lambda4_theory}. At 300 MHz the wavelength is $\lambda = 1$ m, hence $\lambda/4 = 0.25$.
+	
+	This result shows that a $\lambda/4$ transmission line inverts the load resistance. A low load
+	resistance is transformed into a high input resistance and vice versa. By choosing
+	\[
+	Z = \sqrt{R_{\mathrm{S}} R_L},
+	\]
+	a perfect impedance match between a source resistance $R_{\mathrm{S}}$ and the load can be
+	achieved at the design frequency.
+	
+	
 	\begin{table}[h]
 		\centering
-		\begin{tabular}{|c|c|c|c|c|}
+		\caption{Simulated and analytical input resistance of a $\lambda/4$ transformer at $f=300\,\mathrm{MHz}$}
+		\label{tab:lambda4_theory}
+		\begin{tabular}{cccll}
 			\hline
-			Cable type & $\Delta t$ [ns] & $k$ & calc. Length $l$ [m] & Measured Length $l$ [m]\\
+			$Z_\text{line}$ [$\Omega$] & $R_L$ [$\Omega$] & $f$ [Hz] & $Z_{11}$ (sim.) [$\Omega/^\circ$] & $R_{\text{in,th}}$ [$\Omega$] \\
 			\hline
-			RG58 & 38.5 & 0.66 & 3.8 & 3.59\\
-			RG188 & 49.0 & 0.70 & 4.5 & 4.52\\
-			SAT (white) & 30.5 & 0.79 & 3.-- & 3.59\\
+			30 & 18  & $3\times10^8$ & $50 / -0.0665^\circ$ & 50 \\
+			30 & 32  & $3\times10^8$ & $28.1 / 0.00805^\circ$ & 28.1 \\
+			30 & 75  & $3\times10^8$ & $12 / 0.131^\circ$ & 12 \\
+			30 & 100 & $3\times10^8$ & $9 / 0.189^\circ$ & 9 \\
+			30 & 200 & $3\times10^8$ & $4.5 / 0.406^\circ$ & 4.5 \\
+			\hline
+			40 & 18  & $3\times10^8$ & $88.9 / -0.11^\circ$ & 88.9 \\
+			40 & 32  & $3\times10^8$ & $50 / -0.028^\circ$ & 50 \\
+			40 & 75  & $3\times10^8$ & $21.3 / 0.0836^\circ$ & 21.3 \\
+			40 & 100 & $3\times10^8$ & $16 / 0.131^\circ$ & 16 \\
+			40 & 200 & $3\times10^8$ & $8 / 0.299^\circ$ & 8 \\
+			\hline
+			50 & 18  & $3\times10^8$ & $139 / -0.151^\circ$ & 138.9 \\
+			50 & 32  & $3\times10^8$ & $78.1 / -0.0575^\circ$ & 78.1 \\
+			50 & 75  & $3\times10^8$ & $33.3 / 0.0519^\circ$ & 33.3 \\
+			50 & 100 & $3\times10^8$ & $25 / 0.0935^\circ$ & 25 \\
+			50 & 200 & $3\times10^8$ & $12.5 / 0.234^\circ$ & 12.5 \\
+			\hline
+			70.7 & 18  & $3\times10^8$ & $278 / -0.229^\circ$ & 277.8 \\
+			70.7 & 32  & $3\times10^8$ & $156 / -0.109^\circ$ & 156.3 \\
+			70.7 & 75  & $3\times10^8$ & $66.7 / 0.00734^\circ$ & 66.7 \\
+			70.7 & 50  & $3\times10^8$ & $100 / -0.0441^\circ$ & 100 \\
+			70.7 & 100 & $3\times10^8$ & $50 / 0.0441^\circ$ & 50 \\
+			70.7 & 200 & $3\times10^8$ & $25 / 0.154^\circ$ & 25 \\
+			\hline
+			100 & 18  & $3\times10^8$ & $556 / -0.335^\circ$ & 555.6 \\
+			100 & 32  & $3\times10^8$ & $312 / -0.175^\circ$ & 312.5 \\
+			100 & 75  & $3\times10^8$ & $133 / -0.0363^\circ$ & 133.3 \\
+			100 & 50  & $3\times10^8$ & $200 / -0.0935^\circ$ & 200 \\
+			100 & 100 & $3\times10^8$ & $100 / 1.4\times10^{-17}{}^\circ$ & 100 \\
+			100 & 200 & $3\times10^8$ & $50 / 0.0935^\circ$ & 50 \\
 			\hline
 		\end{tabular}
-		\caption{Cable lengths calculated from propagation delay measurements}
 	\end{table}
 	
-	The results obtained for open and short-circuited cable terminations agree within the measurement uncertainty.
-	Remaining deviations are mainly caused by reading errors, additional cable lengths due to T-connectors (and ikea papaer measuring tapes :).
-	
-	\subsubsection{}
-	j
-\begin{figure}[h]
-	\centering
-	\begin{tikzpicture}[>=latex,thick]
-		
-		% Pulsgenerator links
-		\node[draw, rectangle, minimum width=3cm, minimum height=1cm] (PG)
-		{Pulsgenerator};
-		
-		% T-Stück in der Mitte
-		\node[draw, circle, inner sep=2pt, right=2.5cm of PG] (T) {};
-		\node[below=0.1cm of T] {T-Stück};
-		
-		% Oszilloskop oberhalb des T-Stücks
-		\node[draw, rectangle, minimum width=3cm, minimum height=1cm,
-		above=1.8cm of T] (Scope)
-		{Oszilloskop, CH1};
-		
-		% Kabeltrommel rechts vom T-Stück
-		\node[draw, rectangle, minimum width=3.5cm, minimum height=1.2cm,
-		right=3cm of T] (Drum)
-		{RG58 auf Kabeltrommel};
-		
-		
-		% Verbindungen
-		% Pulsgenerator -> T-Stück
-		\draw[->] (PG) -- (T)
-		node[midway,above]{short BNC};
-		
-		% T-Stück -> Oszilloskop
-		\draw[->] (T) -- (Scope)
-		node[midway,right]{directly at input};
-		
-		% T-Stück -> Kabeltrommel
-		\draw[->] (T) -- (Drum);
-
-		
-		
-	\end{tikzpicture}
-	\caption{Schaltung zur Messung mit der RG58-Kabeltrommel}
-\end{figure}
-	
-	\subsubsection{}
-	
-	\subsubsection{}
-	three different termination impedances 50, 75 and 93$\,\Omega$ were connected to the SAT cable to narrow down the impedance range of the cable. Due to the reflections we know that it has to be between 50 and 75$\,\Omega$. Using the potentiometer we were able to find the configuration where complete termination occurs and determined the impedance of the SAT cable at 72.8 $\pm 0.2\,\Omega$. 
 	
 	
 	
-	\subsubsection{}
-	The velocity factor $k$ of the SAT cable can be determined from the known physical length
-	$s$ and the measured round-trip time difference $\Delta t$ between the incident and reflected
-	pulse. Rearranging the propagation relation
-	\[
-	v = k\,c = \frac{2s}{\Delta t}
-	\]
-	gives
-	\[
-	k = \frac{v}{c} = \frac{2s}{c\,\Delta t}.
-	\]
-	Inserting the values from Table~2, $s = 3.59\,\text{m}$ and $\Delta t = 30.5\,\text{ns}$, yields
-	\[
-	k = \frac{2 \cdot 3.59\,\text{m}}{(3.00 \times 10^{8}\,\text{m/s}) \cdot 30.5 \times 10^{-9}\,\text{s}}
-	\approx 0.79.
-	\]
-
-\subsubsection{}
-Assuming that the dielectric of the SAT cable consists of polyethylene, the velocity factor $k$
-of an electromagnetic wave in the cable is given by
-\[
-k = \frac{v}{c} = \frac{1}{\sqrt{\varepsilon_r \mu_r}} \,,
-\]
-where $c$ is the speed of light in vacuum, $\varepsilon_r$ is the relative permittivity of the
-dielectric and $\mu_r$ its relative permeability. For non-magnetic dielectrics such as
-polyethylene we can set $\mu_r \approx 1$, so that
-\[
-k \approx \frac{1}{\sqrt{\varepsilon_r}} \,.
-\]
-
-Using a typical value of $\varepsilon_r \approx 2.3$ for \emph{solid} polyethylene, the
-theoretical velocity factor becomes
-\[
-k_{\text{solid\,PE}} = \frac{1}{\sqrt{2.3}} \approx 0.66 \,.
-\]
-This is the value expected for a coaxial cable with a solid polyethylene dielectric.
-
-From our time-domain reflectometry measurements on the SAT cable (white), we obtained a
-significantly higher velocity factor of about
-\[
-k_{\text{meas}} \approx 0.79 \,.
-\]
-The corresponding effective relative permittivity of the dielectric is
-\[
-\varepsilon_{r,\text{eff}} = \frac{1}{k_{\text{meas}}^{2}}
-\approx \frac{1}{0.82^{2}} \approx 1.5 \,.
-\]
-This effective permittivity is much lower than the value for solid polyethylene
-($\varepsilon_r \approx 2.3$) and lies in the typical range for foamed (cellular) polyethylene,
-which is a mixture of polyethylene and air.
-
-Comparing the theoretical velocity factor for solid polyethylene with the measured value,
-we conclude that the dielectric of the SAT cable is not solid but foamed polyethylene.
-		
-		
-\subsubsection{}
-For a lossless coaxial cable with inner conductor radius $a$ and inner radius $b$ of the outer
-conductor, the characteristic impedance is
-\[
-Z_0 = \frac{60}{\sqrt{\varepsilon_r}} \ln\!\left(\frac{b}{a}\right).
-\]
-Here we have $Z_0 = 75\,\Omega$, an inner conductor diameter of $1\,\text{mm}$ (radius
-$a = 0.5\,\text{mm}$) and an inner diameter of the outer conductor of $4.3\,\text{mm}$
-(radius $b = 2.15\,\text{mm}$), so that
-\[
-\frac{b}{a} = \frac{2.15}{0.5} = 4.3,
-\qquad
-75 = \frac{60}{\sqrt{\varepsilon_r}} \ln(4.3).
-\]
-Solving for $\varepsilon_r$ gives
-\[
-\sqrt{\varepsilon_r}
-= \frac{60 \ln(4.3)}{75}
-\approx \frac{60 \cdot 1.46}{75}
-\approx \frac{87.5}{75}
-\approx 1.17,
-\qquad
-\varepsilon_r \approx (1.17)^2 \approx 1.4.
-\]
-Thus, the relative permittivity of the dielectric is ${\varepsilon_r \approx 1.4}$.
-
-\subsubsection{}
-For a lossless coaxial cable the characteristic impedance $Z_0$ is related to the
-per-unit-length inductance $L'$ and capacitance $C'$ by
-\[
-Z_0 = \sqrt{\frac{L'}{C'}} \,.
-\]
-Solving for $L'$ gives
-\[
-L' = Z_0^{2} \, C' \,.
-\]
-Using the SAT cable impedance $Z_0 \approx 75\,\Omega$ and the given capacitance per unit
-length $C' = 56\,\si{\pico\farad\per\meter} = 56 \cdot 10^{-12}\,\si{\farad\per\meter}$, we obtain
-\[
-L' = (75\,\Omega)^2 \cdot 56 \cdot 10^{-12}\,\si{\henry\per\meter}
-= 5625 \cdot 56 \cdot 10^{-12}\,\si{\henry\per\meter}
-\approx 3.15 \cdot 10^{-7}\,\si{\henry\per\meter}
-= 0.315\,\si{\micro\henry\per\meter}.
-\]
-Thus, the inductance per unit length of the SAT cable is
-\[
-{L' \approx 0.32\,\si{\micro\henry\per\meter}}.
-\]
 
 	\vfill
 	
